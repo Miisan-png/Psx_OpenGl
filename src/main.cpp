@@ -16,6 +16,7 @@ float lastFrame = 0.0f;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
+    game.renderer.SetAspectRatio((float)width / (float)height);
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
@@ -50,9 +51,11 @@ void processInput(GLFWwindow* window) {
             GLFWmonitor* monitor = glfwGetPrimaryMonitor();
             const GLFWvidmode* mode = glfwGetVideoMode(monitor);
             glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+            game.renderer.SetAspectRatio((float)mode->width / (float)mode->height);
             fullscreen = true;
         } else {
             glfwSetWindowMonitor(window, nullptr, windowedX, windowedY, windowedWidth, windowedHeight, 0);
+            game.renderer.SetAspectRatio((float)windowedWidth / (float)windowedHeight);
             fullscreen = false;
         }
         f11Pressed = true;

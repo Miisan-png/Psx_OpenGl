@@ -43,6 +43,8 @@ public:
     ParticleSystem* particles;
     float vertexSnapResolution = 64.0f;
     
+    float currentAspectRatio = 320.0f / 240.0f;
+    
     PSXRenderer() : psxShader(nullptr), particles(nullptr) {}
     
     bool Initialize() {
@@ -148,6 +150,10 @@ public:
         return true;
     }
     
+    void SetAspectRatio(float aspect) {
+        currentAspectRatio = aspect;
+    }
+    
     void BeginFrame(Camera& camera) {
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -177,7 +183,7 @@ public:
         psxShader->setMat4("view", view);
         
         float projection[16];
-        perspective(camera.Fov, 320.0f / 240.0f, 0.1f, 100.0f, projection);
+        perspective(camera.Fov, currentAspectRatio, 0.1f, 100.0f, projection);
         psxShader->setMat4("projection", projection);
     }
     
@@ -201,7 +207,7 @@ public:
     void EndFrame(Camera& camera) {
         float view[16], projection[16];
         camera.GetViewMatrix(view);
-        perspective(camera.Fov, 320.0f / 240.0f, 0.1f, 100.0f, projection);
+        perspective(camera.Fov, currentAspectRatio, 0.1f, 100.0f, projection);
         
         particles->Render(view, projection, camera.Position);
     }

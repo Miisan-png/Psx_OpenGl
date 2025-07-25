@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include "Shader.h"
 #include "Camera.h"
+#include "Model.h"
 
 const unsigned int SCREEN_WIDTH = 320;
 const unsigned int SCREEN_HEIGHT = 240;
@@ -138,6 +139,11 @@ int main() {
 
     Shader psxShader(vertexShaderSource, fragmentShaderSource, true);
 
+    Model bedModel;
+    if (!bedModel.LoadFromFile("assets/GLB/bed.glb")) {
+        std::cout << "Failed to load bed model, using cube instead" << std::endl;
+    }
+
     float vertices[] = {
         -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
          0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
@@ -196,6 +202,8 @@ int main() {
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    bool useBedModel = bedModel.vertices.size() > 0;
+
     while (!glfwWindowShouldClose(window)) {
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -225,8 +233,12 @@ int main() {
         };
         psxShader.setMat4("model", model);
 
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        if (useBedModel) {
+            bedModel.Draw();
+        } else {
+            glBindVertexArray(VAO);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
 
         glfwSwapBuffers(window);
         glfwPollEvents();

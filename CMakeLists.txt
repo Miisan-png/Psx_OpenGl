@@ -6,10 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find packages
 find_package(OpenGL REQUIRED)
+find_package(assimp CONFIG REQUIRED)
 
 # GLFW setup for Windows
 if(WIN32)
-    set(GLFW_ROOT "C:/Libraries/glfw-3.3.8")  # Adjust this path
+    set(GLFW_ROOT "C:/Libraries/glfw-3.3.8")
     set(GLFW_INCLUDE_DIRS "${GLFW_ROOT}/include")
     if(CMAKE_SIZEOF_VOID_P EQUAL 8)
         set(GLFW_LIBRARIES "${GLFW_ROOT}/lib-vc2022/glfw3.lib")
@@ -27,6 +28,11 @@ add_executable(${PROJECT_NAME}
     include/Shader.h
 )
 
+# Add GLAD source
+target_sources(${PROJECT_NAME} PRIVATE
+    vendor/glad/src/glad.c
+)
+
 # Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
     include/
@@ -34,15 +40,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${GLFW_INCLUDE_DIRS}
 )
 
-# Add GLAD source
-target_sources(${PROJECT_NAME} PRIVATE
-    vendor/glad/src/glad.c
-)
-
 # Link libraries
 target_link_libraries(${PROJECT_NAME} 
     OpenGL::GL
     ${GLFW_LIBRARIES}
+    assimp::assimp
 )
 
 # Compiler flags for better debugging

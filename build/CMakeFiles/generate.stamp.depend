@@ -2,6 +2,8 @@
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCInformation.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCXXInformation.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeGenericSystem.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake
@@ -26,3 +28,9 @@ C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/C
 C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CMakeCXXCompiler.cmake
 C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CMakeRCCompiler.cmake
 C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CMakeSystem.cmake
+C:/vcpkg/installed/x64-windows/share/assimp/assimpConfig.cmake
+C:/vcpkg/installed/x64-windows/share/assimp/assimpConfigVersion.cmake
+C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets-debug.cmake
+C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets-release.cmake
+C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets.cmake
+C:/vcpkg/scripts/buildsystems/vcpkg.cmake

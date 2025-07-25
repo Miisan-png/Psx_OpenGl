@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <iostream>  // ADD THIS LINE
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
@@ -9,6 +10,7 @@
 #include "ParticleSystem.h"
 #include "PostProcess.h"
 #include "ShadowMap.h"
+#include "Skybox.h"
 #include <vector>
 
 struct FogSettings {
@@ -46,12 +48,14 @@ public:
     PostProcessEffect* postProcess;
     ShadowMap* shadowMap;
     float vertexSnapResolution = 64.0f;
+    Skybox* skybox;
     
     float currentAspectRatio = 320.0f / 240.0f;
     int renderWidth = 320;
     int renderHeight = 240;
     
-    PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr), shadowMap(nullptr) {}
+    // FIXED CONSTRUCTOR - ADD skybox(nullptr)
+    PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr), shadowMap(nullptr), skybox(nullptr) {}
     
     bool Initialize() {
         std::string vertexSource = R"(
@@ -155,6 +159,12 @@ public:
         particles = new ParticleSystem(2000);
         postProcess = new PostProcessEffect(renderWidth, renderHeight);
         shadowMap = new ShadowMap();
+
+        skybox = new Skybox();
+        if (!skybox->Initialize()) {
+            std::cout << "Failed to initialize skybox" << std::endl;
+            return false;
+        }
         return true;
     }
     
@@ -172,6 +182,8 @@ public:
         postProcess->BeginRender();
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        skybox->Render(camera, currentAspectRatio);
         
         lighting.SetFlashlightFromCamera(camera.Position, camera.Front);
         
@@ -231,13 +243,17 @@ public:
     }
     
     void Update(float deltaTime, Camera& camera) {
+        skybox->Update(deltaTime);
         particles->Update(deltaTime, camera.Position);
     }
     
+    // FIXED DESTRUCTOR - ADD shadowMap deletion
     ~PSXRenderer() {
         delete psxShader;
         delete particles;
         delete postProcess;
+        delete shadowMap;  // ADD THIS LINE
+        delete skybox;
     }
 
 private:

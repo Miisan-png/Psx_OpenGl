@@ -74,6 +74,23 @@ void DebugUI::RenderDebugWindow(Game& game) {
             game.camera.Front[0], game.camera.Front[1], game.camera.Front[2]);
     }
     
+    if (ImGui::CollapsingHeader("🌌 Apocalyptic Skybox")) {
+        if (!game.renderer.skybox) {
+            ImGui::Text("❌ Skybox not initialized!");
+        } else {
+            ImGui::Text("✅ Dark apocalyptic sky with neon meteors");
+            ImGui::Text("⭐ Colorful twinkling stars active");
+            ImGui::Text("☄️ Meteor trails: Cyan, Pink, Green");
+            ImGui::Text("Animation Time: %.2f", game.renderer.skybox->totalTime);
+            
+            ImGui::Separator();
+            ImGui::Text("🎮 This skybox is fully procedural!");
+            ImGui::Text("🌟 Stars twinkle in different neon colors");
+            ImGui::Text("💫 Meteors fly by every few seconds");
+            ImGui::Text("🎨 PSX-style color quantization applied");
+        }
+    }
+    
     if (ImGui::CollapsingHeader("Fog Controls")) {
         ImGui::SliderFloat("Fog Start", &game.renderer.fog.start, 0.1f, 10.0f);
         ImGui::SliderFloat("Fog End", &game.renderer.fog.end, 2.0f, 50.0f);
@@ -150,6 +167,12 @@ void DebugUI::RenderPerformanceWindow() {
     ImGui::Text("F11 - Fullscreen");
     ImGui::Text("F1 - Toggle Debug (this window)");
     ImGui::Text("F2 - Toggle Performance");
+    
+    ImGui::Separator();
+    ImGui::Text("🌌 Skybox Info:");
+    ImGui::Text("✨ Stars: Hot Pink, Cyan, Electric Green");
+    ImGui::Text("☄️ Meteors: Cyan, Hot Pink, Lime Green");
+    ImGui::Text("🌃 Fully procedural apocalyptic sky");
     
     ImGui::End();
 }

@@ -1,18 +1,22 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
+#include <iostream>
 
-// Forward declaration to avoid circular dependency
+// Forward declarations
 class Game;
 
 class DebugUI {
 public:
     bool showDebugWindow = false;
-    bool showFogControls = false;
-    bool showLightingControls = false;
-    bool showParticleControls = false;
-    bool showPostProcessControls = false;
     bool showPerformanceWindow = false;
+
+    bool showSceneEditor = false;
+    bool showAssetBrowser = false;
+    bool isDragging = false;
+    int dragAxis = -1;
+    float dragStartValue = 0.0f;
+    double mouseStartX = 0.0, mouseStartY = 0.0;
     
     float frameTime = 0.0f;
     float fps = 0.0f;
@@ -25,6 +29,10 @@ public:
     void ToggleDebugWindow();
     void TogglePerformanceWindow();
     void Shutdown();
+
+    void ToggleSceneEditor() {
+        showSceneEditor = !showSceneEditor;
+    }
 
 private:
     void RenderDebugWindow(Game& game);

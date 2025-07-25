@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Renderer.h"
 #include "Scene.h"
 #include "Camera.h"
@@ -19,7 +20,7 @@ public:
     
     bool Initialize(GLFWwindow* window) {
         camera = Camera(0.0f, 0.0f, 3.0f);
-        
+
         if (!renderer.Initialize()) {
             return false;
         }
@@ -147,6 +148,18 @@ public:
         }
         if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_RELEASE) {
             f2Pressed = false;
+        }
+
+        // Simple skybox info hotkey
+        static bool f5Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS && !f5Pressed) {
+            std::cout << "🌌 Apocalyptic Skybox Active!" << std::endl;
+            std::cout << "⭐ Colorful twinkling stars" << std::endl;
+            std::cout << "☄️ Neon meteors with trails" << std::endl;
+            f5Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_RELEASE) {
+            f5Pressed = false;
         }
     }
     

@@ -2,42 +2,73 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "Shader.h"
+#include "Camera.h"
 
-// Window dimensions
-const unsigned int SCREEN_WIDTH = 320;  // PSX-style low resolution
+const unsigned int SCREEN_WIDTH = 320;
 const unsigned int SCREEN_HEIGHT = 240;
-const unsigned int WINDOW_SCALE = 3;    // Scale up for modern displays
-
-// PSX-style vertex snapping resolution
+const unsigned int WINDOW_SCALE = 3;
 const float VERTEX_SNAP_RESOLUTION = 64.0f;
 
-// Callback for window resize
+Camera camera(0.0f, 0.0f, 3.0f);
+float lastX = (SCREEN_WIDTH * WINDOW_SCALE) / 2.0f;
+float lastY = (SCREEN_HEIGHT * WINDOW_SCALE) / 2.0f;
+bool firstMouse = true;
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-// Process input
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    if (firstMouse) {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+
+    lastX = xpos;
+    lastY = ypos;
+
+    camera.ProcessMouseMovement(xoffset, yoffset);
+}
+
 void processInput(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.ProcessKeyboard(0, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.ProcessKeyboard(1, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.ProcessKeyboard(2, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.ProcessKeyboard(3, deltaTime);
+}
+
+void perspective(float fovy, float aspect, float zNear, float zFar, float* result) {
+    float f = 1.0f / tan(fovy * 3.14159265359f / 360.0f);
+    result[0] = f / aspect; result[4] = 0; result[8] = 0; result[12] = 0;
+    result[1] = 0; result[5] = f; result[9] = 0; result[13] = 0;
+    result[2] = 0; result[6] = 0; result[10] = (zFar + zNear) / (zNear - zFar); result[14] = (2 * zFar * zNear) / (zNear - zFar);
+    result[3] = 0; result[7] = 0; result[11] = -1; result[15] = 0;
 }
 
 int main() {
-    // Initialize GLFW
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW" << std::endl;
         return -1;
     }
 
-    // Configure GLFW
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    
-    // Disable window resizing for consistent PSX feel
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    // Create window
     GLFWwindow* window = glfwCreateWindow(
         SCREEN_WIDTH * WINDOW_SCALE, 
         SCREEN_HEIGHT * WINDOW_SCALE, 
@@ -54,42 +85,42 @@ int main() {
     
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    // Load OpenGL functions with GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cerr << "Failed to initialize GLAD" << std::endl;
         return -1;
     }
 
-    // Set viewport to our PSX resolution
     glViewport(0, 0, SCREEN_WIDTH * WINDOW_SCALE, SCREEN_HEIGHT * WINDOW_SCALE);
-    
-    // Enable depth testing for 3D
     glEnable(GL_DEPTH_TEST);
-    
-    // PSX-style settings
-    glDisable(GL_DITHER);  // Sharp, undithered colors
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);  // For low-res textures
+    glDisable(GL_DITHER);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     std::cout << "PSX Horror Engine initialized!" << std::endl;
 
-    // Create PSX-style shader with vertex snapping
     std::string vertexShaderSource = R"(
         #version 330 core
         layout (location = 0) in vec3 aPos;
         layout (location = 1) in vec3 aColor;
         
+        uniform mat4 model;
+        uniform mat4 view;
+        uniform mat4 projection;
         uniform float u_snapResolution;
         
         out vec3 vertexColor;
         
         void main() {
-            // PSX-style vertex snapping
-            vec3 snappedPos = aPos;
-            snappedPos.xy = floor(snappedPos.xy * u_snapResolution) / u_snapResolution;
+            vec4 worldPos = model * vec4(aPos, 1.0);
+            vec4 viewPos = view * worldPos;
+            vec4 clipPos = projection * viewPos;
             
-            gl_Position = vec4(snappedPos, 1.0);
+            clipPos.xy = floor(clipPos.xy * u_snapResolution) / u_snapResolution;
+            
+            gl_Position = clipPos;
             vertexColor = aColor;
         }
     )";
@@ -100,7 +131,6 @@ int main() {
         out vec4 FragColor;
         
         void main() {
-            // PSX-style color quantization (optional)
             vec3 quantizedColor = floor(vertexColor * 32.0) / 32.0;
             FragColor = vec4(quantizedColor, 1.0);
         }
@@ -108,12 +138,48 @@ int main() {
 
     Shader psxShader(vertexShaderSource, fragmentShaderSource, true);
 
-    // Triangle vertices with colors (PSX-style chunky triangle)
     float vertices[] = {
-        // positions        // colors
-         0.0f,  0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // top - red
-        -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,  // bottom left - green
-         0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f   // bottom right - blue
+        -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+         0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+         0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f,
+
+         0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 0.0f,
+         0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 0.0f,
+         0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f, 1.0f, 0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f, 1.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f, 1.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 1.0f
     };
 
     unsigned int VBO, VAO;
@@ -121,41 +187,51 @@ int main() {
     glGenBuffers(1, &VBO);
 
     glBindVertexArray(VAO);
-
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    // Position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    // Color attribute
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    // Main render loop
     while (!glfwWindowShouldClose(window)) {
-        // Input
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         processInput(window);
 
-        // Render
-        glClearColor(0.1f, 0.05f, 0.15f, 1.0f);  // Dark purple/black
+        glClearColor(0.1f, 0.05f, 0.15f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Use our PSX shader
         psxShader.use();
         psxShader.setFloat("u_snapResolution", VERTEX_SNAP_RESOLUTION);
 
-        // Draw triangle
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        float view[16];
+        camera.GetViewMatrix(view);
+        psxShader.setMat4("view", view);
 
-        // Swap buffers and poll events
+        float projection[16];
+        perspective(camera.Fov, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f, projection);
+        psxShader.setMat4("projection", projection);
+
+        float model[16] = {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            0, 0, 0, 1
+        };
+        psxShader.setMat4("model", model);
+
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // Cleanup
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     

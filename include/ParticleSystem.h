@@ -26,7 +26,8 @@ public:
     float spawnRate = 50.0f;
     float lastSpawn = 0.0f;
     
-    float spawnBox[6] = {-10.0f, 10.0f, -2.0f, 5.0f, -10.0f, 10.0f};
+    // Made spawn box smaller and closer to camera
+    float spawnBox[6] = {-5.0f, 5.0f, 0.0f, 3.0f, -5.0f, 5.0f};
     
     ParticleSystem(int maxParticles = 1000) {
         particles.resize(maxParticles);
@@ -35,8 +36,8 @@ public:
         createShader();
         
         // Spawn some initial particles for immediate visibility
-        for (int i = 0; i < 50; i++) {
-            float pos[3] = {0.0f, 0.0f, 0.0f};
+        for (int i = 0; i < 100; i++) {
+            float pos[3] = {0.0f, 1.0f, 0.0f}; // Spawn at eye level
             SpawnParticle(pos);
         }
     }
@@ -77,18 +78,28 @@ public:
         
         glBindVertexArray(VAO);
         
+        int renderedCount = 0;
         for (const auto& particle : particles) {
             if (!particle.active) continue;
             
             particleShader->setVec3("particlePos", particle.position[0], particle.position[1], particle.position[2]);
             particleShader->setFloat("particleSize", particle.size);
-            particleShader->setFloat("particleAlpha", particle.alpha * 0.3f);
+            particleShader->setFloat("particleAlpha", particle.alpha);
             
             glDrawArrays(GL_TRIANGLES, 0, 6);
+            renderedCount++;
         }
         
         glDepthMask(GL_TRUE);
         glDisable(GL_BLEND);
+        
+        // Debug output (remove this later)
+        static float debugTimer = 0.0f;
+        debugTimer += 0.016f; // assume 60fps
+        if (debugTimer > 2.0f) {
+            std::cout << "Rendering " << renderedCount << " particles" << std::endl;
+            debugTimer = 0.0f;
+        }
     }
     
 private:
@@ -96,17 +107,18 @@ private:
         for (auto& particle : particles) {
             if (particle.active) continue;
             
+            // Spawn closer to camera and at visible heights
             particle.position[0] = cameraPos[0] + RandomFloat(spawnBox[0], spawnBox[1]);
-            particle.position[1] = RandomFloat(spawnBox[2], spawnBox[3]);
+            particle.position[1] = cameraPos[1] + RandomFloat(spawnBox[2], spawnBox[3]);
             particle.position[2] = cameraPos[2] + RandomFloat(spawnBox[4], spawnBox[5]);
             
-            particle.velocity[0] = RandomFloat(-0.2f, 0.2f);
-            particle.velocity[1] = RandomFloat(-0.1f, 0.1f);
-            particle.velocity[2] = RandomFloat(-0.2f, 0.2f);
+            particle.velocity[0] = RandomFloat(-0.5f, 0.5f);
+            particle.velocity[1] = RandomFloat(-0.2f, 0.2f);
+            particle.velocity[2] = RandomFloat(-0.5f, 0.5f);
             
-            particle.life = RandomFloat(8.0f, 15.0f);
+            particle.life = RandomFloat(5.0f, 10.0f);
             particle.maxLife = particle.life;
-            particle.size = RandomFloat(0.05f, 0.15f);
+            particle.size = RandomFloat(0.02f, 0.08f); // Tiny dust particles
             particle.alpha = 1.0f;
             particle.active = true;
             
@@ -119,6 +131,7 @@ private:
     }
     
     void setupRenderData() {
+        // Bigger quad for particles
         float vertices[] = {
             -0.5f, -0.5f, 0.0f,
              0.5f, -0.5f, 0.0f,
@@ -153,14 +166,16 @@ private:
             uniform vec3 cameraPos;
             
             out vec2 TexCoord;
+            out vec3 worldPos;
             
             void main() {
+                // Billboard the particle to always face camera
                 vec3 cameraRight = vec3(view[0][0], view[1][0], view[2][0]);
                 vec3 cameraUp = vec3(view[0][1], view[1][1], view[2][1]);
                 
                 vec3 worldPos = particlePos + cameraRight * aPos.x * particleSize + cameraUp * aPos.y * particleSize;
                 
-                TexCoord = aPos.xy + 0.5;
+                TexCoord = aPos.xy * 0.5 + 0.5; // Convert from -1,1 to 0,1
                 
                 gl_Position = projection * view * vec4(worldPos, 1.0);
             }
@@ -168,27 +183,26 @@ private:
         
         std::string fragmentSource = R"(
             #version 330 core
+            in vec2 TexCoord;
             out vec4 FragColor;
             
             uniform float particleAlpha;
             
             void main() {
-                vec2 coord = (gl_FragCoord.xy - vec2(320.0, 240.0)) / vec2(320.0, 240.0);
-                coord = coord * 2.0 - 1.0;
+                // Create sharp circular particle - no blurriness
+                vec2 center = vec2(0.5, 0.5);
+                float dist = distance(TexCoord, center);
                 
-                vec2 center = vec2(0.0, 0.0);
-                float dist = distance(gl_FragCoord.xy / vec2(960.0, 720.0), center + vec2(0.5, 0.5));
+                // Sharp cutoff for crisp edges
+                if (dist > 0.4) discard;
                 
-                // Make circular particles
-                vec2 particleCoord = (gl_FragCoord.xy - gl_FragCoord.xy) / 32.0;
-                float radius = length(particleCoord - vec2(0.5));
+                // Less smoothing for sharper look
+                float alpha = 1.0 - (dist / 0.4);
+                alpha = alpha * alpha; // Sharper falloff
                 
-                if (radius > 0.5) discard;
-                
-                float alpha = (1.0 - radius * 2.0) * particleAlpha;
-                alpha = smoothstep(0.0, 1.0, alpha);
-                
-                FragColor = vec4(0.9, 0.9, 1.0, alpha * 0.6);
+                // Crisp white dust particles
+                vec3 color = vec3(1.0, 1.0, 1.0);
+                FragColor = vec4(color, alpha * particleAlpha * 0.6);
             }
         )";
         

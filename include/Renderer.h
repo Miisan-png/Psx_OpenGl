@@ -6,6 +6,7 @@
 #include "Model.h"
 #include "Texture.h"
 #include "Lighting.h"
+#include "ParticleSystem.h"
 #include <vector>
 
 struct FogSettings {
@@ -39,9 +40,10 @@ public:
     Shader* psxShader;
     FogSettings fog;
     LightingSystem lighting;
+    ParticleSystem* particles;
     float vertexSnapResolution = 64.0f;
     
-    PSXRenderer() : psxShader(nullptr) {}
+    PSXRenderer() : psxShader(nullptr), particles(nullptr) {}
     
     bool Initialize() {
         std::string vertexSource = R"(
@@ -142,6 +144,7 @@ public:
         )";
         
         psxShader = new Shader(vertexSource, fragmentSource, true);
+        particles = new ParticleSystem(500);
         return true;
     }
     
@@ -195,12 +198,21 @@ public:
         }
     }
     
-    void EndFrame() {
+    void EndFrame(Camera& camera) {
+        float view[16], projection[16];
+        camera.GetViewMatrix(view);
+        perspective(camera.Fov, 320.0f / 240.0f, 0.1f, 100.0f, projection);
         
+        particles->Render(view, projection, camera.Position);
+    }
+    
+    void Update(float deltaTime, Camera& camera) {
+        particles->Update(deltaTime, camera.Position);
     }
     
     ~PSXRenderer() {
         delete psxShader;
+        delete particles;
     }
 
 private:

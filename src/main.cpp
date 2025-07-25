@@ -38,6 +38,29 @@ void processInput(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
     
+    static bool f11Pressed = false;
+    if (glfwGetKey(window, GLFW_KEY_F11) == GLFW_PRESS && !f11Pressed) {
+        static bool fullscreen = false;
+        static int windowedWidth = SCREEN_WIDTH * WINDOW_SCALE;
+        static int windowedHeight = SCREEN_HEIGHT * WINDOW_SCALE;
+        static int windowedX, windowedY;
+        
+        if (!fullscreen) {
+            glfwGetWindowPos(window, &windowedX, &windowedY);
+            GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+            const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+            glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+            fullscreen = true;
+        } else {
+            glfwSetWindowMonitor(window, nullptr, windowedX, windowedY, windowedWidth, windowedHeight, 0);
+            fullscreen = false;
+        }
+        f11Pressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_F11) == GLFW_RELEASE) {
+        f11Pressed = false;
+    }
+    
     game.ProcessInput(window, deltaTime);
 }
 

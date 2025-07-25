@@ -49,13 +49,13 @@ public:
     }
     
     void Update(float deltaTime) {
-        
+        renderer.Update(deltaTime, camera);
     }
     
     void Render() {
         renderer.BeginFrame(camera);
         scene.Render(renderer);
-        renderer.EndFrame();
+        renderer.EndFrame(camera);
     }
     
     void ProcessInput(GLFWwindow* window, float deltaTime) {

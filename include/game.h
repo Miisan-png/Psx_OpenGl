@@ -67,5 +67,14 @@ public:
             camera.ProcessKeyboard(2, deltaTime);
         if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
             camera.ProcessKeyboard(3, deltaTime);
+        
+        static bool fPressed = false;
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS && !fPressed) {
+            renderer.lighting.ToggleSpotlight();
+            fPressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_RELEASE) {
+            fPressed = false;
+        }
     }
 };

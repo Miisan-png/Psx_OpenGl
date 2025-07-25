@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Texture.h"
+#include "Lighting.h"
 #include <vector>
 
 struct FogSettings {
@@ -37,6 +38,7 @@ class PSXRenderer {
 public:
     Shader* psxShader;
     FogSettings fog;
+    LightingSystem lighting;
     float vertexSnapResolution = 64.0f;
     
     PSXRenderer() : psxShader(nullptr) {}
@@ -58,6 +60,8 @@ public:
             out vec3 vertexColor;
             out vec2 TexCoord;
             out float fogFactor;
+            out vec3 FragPos;
+            out vec3 WorldPos;
             
             void main() {
                 vec4 worldPos = model * vec4(aPos, 1.0);
@@ -72,6 +76,8 @@ public:
                 gl_Position = clipPos;
                 vertexColor = aColor;
                 TexCoord = aTexCoord;
+                FragPos = viewPos.xyz;
+                WorldPos = worldPos.xyz;
             }
         )";
 
@@ -80,23 +86,55 @@ public:
             in vec3 vertexColor;
             in vec2 TexCoord;
             in float fogFactor;
+            in vec3 FragPos;
+            in vec3 WorldPos;
             out vec4 FragColor;
             
             uniform sampler2D ourTexture;
             uniform bool useTexture;
             uniform vec3 fogColor;
             
+            uniform bool spotlightEnabled;
+            uniform vec3 spotlightPos;
+            uniform vec3 spotlightDir;
+            uniform vec3 spotlightColor;
+            uniform float spotlightIntensity;
+            uniform float spotlightRange;
+            uniform float spotlightInnerCone;
+            uniform float spotlightOuterCone;
+            
+            uniform vec3 ambientColor;
+            uniform float ambientIntensity;
+            
             void main() {
                 vec4 texColor = texture(ourTexture, TexCoord);
-                vec4 finalColor;
+                vec4 baseColor;
                 
                 if (useTexture) {
-                    finalColor = texColor * vec4(vertexColor, 1.0);
+                    baseColor = texColor * vec4(vertexColor, 1.0);
                 } else {
-                    finalColor = vec4(vertexColor, 1.0);
+                    baseColor = vec4(vertexColor, 1.0);
                 }
                 
-                finalColor.rgb = floor(finalColor.rgb * 32.0) / 32.0;
+                vec3 lighting = ambientColor * ambientIntensity;
+                
+                if (spotlightEnabled) {
+                    vec3 lightDir = normalize(spotlightPos - WorldPos);
+                    float distance = length(spotlightPos - WorldPos);
+                    
+                    if (distance < spotlightRange) {
+                        float theta = dot(lightDir, normalize(-spotlightDir));
+                        float epsilon = cos(radians(spotlightInnerCone)) - cos(radians(spotlightOuterCone));
+                        float intensity = clamp((theta - cos(radians(spotlightOuterCone))) / epsilon, 0.0, 1.0);
+                        
+                        float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * distance * distance);
+                        
+                        lighting += spotlightColor * spotlightIntensity * intensity * attenuation;
+                    }
+                }
+                
+                vec4 finalColor = baseColor * vec4(lighting, 1.0);
+                finalColor.rgb = floor(finalColor.rgb * 16.0) / 16.0;
                 finalColor.rgb = mix(fogColor, finalColor.rgb, fogFactor);
                 
                 FragColor = finalColor;
@@ -111,11 +149,25 @@ public:
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
+        lighting.SetFlashlightFromCamera(camera.Position, camera.Front);
+        
         psxShader->use();
         psxShader->setFloat("u_snapResolution", vertexSnapResolution);
         psxShader->setFloat("fogStart", fog.start);
         psxShader->setFloat("fogEnd", fog.end);
         psxShader->setVec3("fogColor", fog.color[0], fog.color[1], fog.color[2]);
+        
+        psxShader->setBool("spotlightEnabled", lighting.spotlight.enabled);
+        psxShader->setVec3("spotlightPos", lighting.spotlight.position[0], lighting.spotlight.position[1], lighting.spotlight.position[2]);
+        psxShader->setVec3("spotlightDir", lighting.spotlight.direction[0], lighting.spotlight.direction[1], lighting.spotlight.direction[2]);
+        psxShader->setVec3("spotlightColor", lighting.spotlight.color[0], lighting.spotlight.color[1], lighting.spotlight.color[2]);
+        psxShader->setFloat("spotlightIntensity", lighting.spotlight.intensity);
+        psxShader->setFloat("spotlightRange", lighting.spotlight.range);
+        psxShader->setFloat("spotlightInnerCone", lighting.spotlight.innerCone);
+        psxShader->setFloat("spotlightOuterCone", lighting.spotlight.outerCone);
+        
+        psxShader->setVec3("ambientColor", lighting.ambient.color[0], lighting.ambient.color[1], lighting.ambient.color[2]);
+        psxShader->setFloat("ambientIntensity", lighting.ambient.intensity);
         
         float view[16];
         camera.GetViewMatrix(view);

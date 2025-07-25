@@ -37,6 +37,7 @@ public:
     
     std::vector<EffectSettings> effects;
     std::string currentShaderName = "psx_retro";
+    bool effectsEnabled = true;
     
     int width, height;
     
@@ -92,19 +93,40 @@ public:
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
     
+    void ToggleAllEffects() {
+        effectsEnabled = !effectsEnabled;
+    }
+    
+    void SetEffectsEnabled(bool enabled) {
+        effectsEnabled = enabled;
+    }
+    
     void RenderToScreen(int screenWidth, int screenHeight) {
         glViewport(0, 0, screenWidth, screenHeight);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        Shader* shader = ShaderManager::Instance().GetShader(currentShaderName);
-        if (!shader) return;
-        
-        shader->use();
-        setShaderUniforms(shader, screenWidth, screenHeight);
+        if (!effectsEnabled) {
+            // Just render the texture directly without any effects
+            Shader* passthrough = ShaderManager::Instance().GetShader("passthrough");
+            if (!passthrough) {
+                loadPassthroughShader();
+                passthrough = ShaderManager::Instance().GetShader("passthrough");
+            }
+            
+            if (passthrough) {
+                passthrough->use();
+                passthrough->setInt("screenTexture", 0);
+            }
+        } else {
+            Shader* shader = ShaderManager::Instance().GetShader(currentShaderName);
+            if (!shader) return;
+            
+            shader->use();
+            setShaderUniforms(shader, screenWidth, screenHeight);
+        }
         
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, colorTexture);
-        shader->setInt("screenTexture", 0);
         
         glBindVertexArray(quadVAO);
         glDisable(GL_DEPTH_TEST);
@@ -148,6 +170,36 @@ private:
         sm.LoadShader("psx_retro", "shaders/screen.vert", "shaders/psx_retro.frag");
         sm.LoadShader("scanlines", "shaders/screen.vert", "shaders/scanlines.frag");
         sm.LoadShader("crt_monitor", "shaders/screen.vert", "shaders/crt_monitor.frag");
+    }
+    
+    void loadPassthroughShader() {
+        std::string vertexSource = R"(
+            #version 330 core
+            layout (location = 0) in vec2 aPos;
+            layout (location = 1) in vec2 aTexCoord;
+            
+            out vec2 TexCoord;
+            
+            void main() {
+                gl_Position = vec4(aPos.x, aPos.y, 0.0, 1.0);
+                TexCoord = aTexCoord;
+            }
+        )";
+        
+        std::string fragmentSource = R"(
+            #version 330 core
+            in vec2 TexCoord;
+            out vec4 FragColor;
+            
+            uniform sampler2D screenTexture;
+            
+            void main() {
+                FragColor = texture(screenTexture, TexCoord);
+            }
+        )";
+        
+        Shader* passthroughShader = new Shader(vertexSource, fragmentSource, true);
+        ShaderManager::Instance().shaders["passthrough"] = passthroughShader;
     }
     
     void updateShader() {

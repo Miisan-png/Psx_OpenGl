@@ -106,5 +106,19 @@ public:
         if (glfwGetKey(window, GLFW_KEY_3) == GLFW_RELEASE) {
             key3Pressed = false;
         }
+        
+        static bool key0Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS && !key0Pressed) {
+            renderer.postProcess->ToggleAllEffects();
+            if (renderer.postProcess->effectsEnabled) {
+                std::cout << "Post-processing effects ENABLED" << std::endl;
+            } else {
+                std::cout << "Post-processing effects DISABLED (raw render)" << std::endl;
+            }
+            key0Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_0) == GLFW_RELEASE) {
+            key0Pressed = false;
+        }
     }
 };

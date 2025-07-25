@@ -152,11 +152,15 @@ private:
             uniform float particleSize;
             uniform vec3 cameraPos;
             
+            out vec2 TexCoord;
+            
             void main() {
                 vec3 cameraRight = vec3(view[0][0], view[1][0], view[2][0]);
                 vec3 cameraUp = vec3(view[0][1], view[1][1], view[2][1]);
                 
                 vec3 worldPos = particlePos + cameraRight * aPos.x * particleSize + cameraUp * aPos.y * particleSize;
+                
+                TexCoord = aPos.xy + 0.5;
                 
                 gl_Position = projection * view * vec4(worldPos, 1.0);
             }
@@ -169,12 +173,22 @@ private:
             uniform float particleAlpha;
             
             void main() {
-                vec2 coord = gl_PointCoord - vec2(0.5);
-                float dist = length(coord);
+                vec2 coord = (gl_FragCoord.xy - vec2(320.0, 240.0)) / vec2(320.0, 240.0);
+                coord = coord * 2.0 - 1.0;
                 
-                float alpha = max(0.1, (1.0 - dist * 2.0) * particleAlpha);
+                vec2 center = vec2(0.0, 0.0);
+                float dist = distance(gl_FragCoord.xy / vec2(960.0, 720.0), center + vec2(0.5, 0.5));
                 
-                FragColor = vec4(0.9, 0.9, 1.0, alpha);
+                // Make circular particles
+                vec2 particleCoord = (gl_FragCoord.xy - gl_FragCoord.xy) / 32.0;
+                float radius = length(particleCoord - vec2(0.5));
+                
+                if (radius > 0.5) discard;
+                
+                float alpha = (1.0 - radius * 2.0) * particleAlpha;
+                alpha = smoothstep(0.0, 1.0, alpha);
+                
+                FragColor = vec4(0.9, 0.9, 1.0, alpha * 0.6);
             }
         )";
         

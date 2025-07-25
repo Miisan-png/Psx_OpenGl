@@ -11,6 +11,7 @@
 struct Vertex {
     float Position[3];
     float Color[3];
+    float TexCoords[2];
 };
 
 class Model {
@@ -69,6 +70,14 @@ private:
             vertex.Color[1] = 0.7f;
             vertex.Color[2] = 0.6f;
 
+            if (mesh->mTextureCoords[0]) {
+                vertex.TexCoords[0] = mesh->mTextureCoords[0][i].x;
+                vertex.TexCoords[1] = mesh->mTextureCoords[0][i].y;
+            } else {
+                vertex.TexCoords[0] = 0.0f;
+                vertex.TexCoords[1] = 0.0f;
+            }
+
             vertices.push_back(vertex);
         }
 
@@ -98,6 +107,9 @@ private:
 
         glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Color));
         glEnableVertexAttribArray(1);
+
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+        glEnableVertexAttribArray(2);
 
         glBindVertexArray(0);
     }

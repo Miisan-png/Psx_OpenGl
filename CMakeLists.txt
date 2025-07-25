@@ -37,6 +37,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 target_include_directories(${PROJECT_NAME} PRIVATE
     include/
     vendor/glad/include/
+    vendor/stb/
     ${GLFW_INCLUDE_DIRS}
 )
 

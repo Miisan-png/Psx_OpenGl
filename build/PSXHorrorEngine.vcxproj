@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -109,10 +109,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -147,7 +147,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -170,10 +170,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -208,7 +208,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -231,10 +231,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -269,7 +269,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/vcpkg/installed/x64-windows/include"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -291,10 +291,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\include;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\stb;C:\Libraries\glfw-3.3.8\include;C:\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

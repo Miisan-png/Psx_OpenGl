@@ -4,6 +4,7 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
+#include "Texture.h"
 
 const unsigned int SCREEN_WIDTH = 320;
 const unsigned int SCREEN_HEIGHT = 240;
@@ -106,6 +107,7 @@ int main() {
         #version 330 core
         layout (location = 0) in vec3 aPos;
         layout (location = 1) in vec3 aColor;
+        layout (location = 2) in vec2 aTexCoord;
         
         uniform mat4 model;
         uniform mat4 view;
@@ -113,6 +115,7 @@ int main() {
         uniform float u_snapResolution;
         
         out vec3 vertexColor;
+        out vec2 TexCoord;
         
         void main() {
             vec4 worldPos = model * vec4(aPos, 1.0);
@@ -123,17 +126,31 @@ int main() {
             
             gl_Position = clipPos;
             vertexColor = aColor;
+            TexCoord = aTexCoord;
         }
     )";
 
     std::string fragmentShaderSource = R"(
         #version 330 core
         in vec3 vertexColor;
+        in vec2 TexCoord;
         out vec4 FragColor;
         
+        uniform sampler2D ourTexture;
+        uniform bool useTexture;
+        
         void main() {
-            vec3 quantizedColor = floor(vertexColor * 32.0) / 32.0;
-            FragColor = vec4(quantizedColor, 1.0);
+            vec4 texColor = texture(ourTexture, TexCoord);
+            vec4 finalColor;
+            
+            if (useTexture) {
+                finalColor = texColor * vec4(vertexColor, 1.0);
+            } else {
+                finalColor = vec4(vertexColor, 1.0);
+            }
+            
+            finalColor.rgb = floor(finalColor.rgb * 32.0) / 32.0;
+            FragColor = finalColor;
         }
     )";
 
@@ -143,6 +160,9 @@ int main() {
     if (!bedModel.LoadFromFile("assets/GLB/bed.glb")) {
         std::cout << "Failed to load bed model, using cube instead" << std::endl;
     }
+
+    Texture bedTexture;
+    bool hasTexture = bedTexture.LoadFromFile("assets/Texture/bed/Bed.png");
 
     float vertices[] = {
         -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
@@ -216,6 +236,12 @@ int main() {
 
         psxShader.use();
         psxShader.setFloat("u_snapResolution", VERTEX_SNAP_RESOLUTION);
+        psxShader.setBool("useTexture", hasTexture && useBedModel);
+        
+        if (hasTexture && useBedModel) {
+            bedTexture.Bind(0);
+            psxShader.setInt("ourTexture", 0);
+        }
 
         float view[16];
         camera.GetViewMatrix(view);

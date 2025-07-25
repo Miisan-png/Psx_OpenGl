@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find packages
 find_package(OpenGL REQUIRED)
 find_package(assimp CONFIG REQUIRED)
+find_package(imgui CONFIG REQUIRED)
 
 # GLFW setup for Windows
 if(WIN32)
@@ -25,6 +26,8 @@ endif()
 # Add executable
 add_executable(${PROJECT_NAME} 
     src/main.cpp
+    src/DebugUI.cpp
+    src/stb_image_impl.cpp
     include/Shader.h
 )
 
@@ -46,6 +49,7 @@ target_link_libraries(${PROJECT_NAME}
     OpenGL::GL
     ${GLFW_LIBRARIES}
     assimp::assimp
+    imgui::imgui
 )
 
 # Compiler flags for better debugging

@@ -119,7 +119,7 @@ int main() {
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     std::cout << "PSX Horror Engine initialized!" << std::endl;
 
-    if (!game.Initialize()) {
+    if (!game.Initialize(window)) {
         std::cerr << "Failed to initialize game" << std::endl;
         return -1;
     }
@@ -137,6 +137,7 @@ int main() {
         glfwPollEvents();
     }
 
+    game.Shutdown();
     glfwTerminate();
     return 0;
 }

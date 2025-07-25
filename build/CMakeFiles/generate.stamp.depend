@@ -33,6 +33,9 @@ C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake
@@ -94,7 +97,9 @@ C:/Program Files/CMake/share/cmake-3.30/Modules/CompilerId/VS-10.vcxproj.in
 C:/Program Files/CMake/share/cmake-3.30/Modules/FindOpenGL.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake
+C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-Determine-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake
@@ -113,4 +118,13 @@ C:/vcpkg/installed/x64-windows/share/assimp/assimpConfigVersion.cmake
 C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets-debug.cmake
 C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets-release.cmake
 C:/vcpkg/installed/x64-windows/share/assimp/assimpTargets.cmake
+C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake
+C:/vcpkg/installed/x64-windows/share/glfw3/glfw3ConfigVersion.cmake
+C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets-debug.cmake
+C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets-release.cmake
+C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Targets.cmake
+C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake
+C:/vcpkg/installed/x64-windows/share/imgui/imgui-targets-debug.cmake
+C:/vcpkg/installed/x64-windows/share/imgui/imgui-targets-release.cmake
+C:/vcpkg/installed/x64-windows/share/imgui/imgui-targets.cmake
 C:/vcpkg/scripts/buildsystems/vcpkg.cmake

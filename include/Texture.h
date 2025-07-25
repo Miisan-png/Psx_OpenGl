@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 
-#define STB_IMAGE_IMPLEMENTATION
+// Forward declaration - we'll implement stb_image in a separate file
+// Don't define STB_IMAGE_IMPLEMENTATION here
 #include "stb_image.h"
 
 class Texture {

@@ -252,6 +252,12 @@ _VCPKG_INSTALLED_DIR:PATH=C:/vcpkg/installed
 //The directory containing a CMake configuration file for assimp.
 assimp_DIR:PATH=C:/vcpkg/installed/x64-windows/share/assimp
 
+//The directory containing a CMake configuration file for glfw3.
+glfw3_DIR:PATH=C:/vcpkg/installed/x64-windows/share/glfw3
+
+//The directory containing a CMake configuration file for imgui.
+imgui_DIR:PATH=C:/vcpkg/installed/x64-windows/share/imgui
+
 
 ########################
 # INTERNAL cache entries
@@ -319,6 +325,12 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=
+//Have library pthreads
+CMAKE_HAVE_PTHREADS_CREATE:INTERNAL=
+//Have library pthread
+CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl
@@ -387,6 +399,8 @@ CMAKE_TOOLCHAIN_FILE-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY

@@ -5,20 +5,26 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Texture.h"
+#include "DebugUI.h"
 
 class Game {
 public:
     PSXRenderer renderer;
     Scene scene;
     Camera camera;
+    DebugUI debugUI;
     
     Model bedModel;
     Texture bedTexture;
     
-    bool Initialize() {
+    bool Initialize(GLFWwindow* window) {
         camera = Camera(0.0f, 0.0f, 3.0f);
         
         if (!renderer.Initialize()) {
+            return false;
+        }
+        
+        if (!debugUI.Initialize(window)) {
             return false;
         }
         
@@ -50,12 +56,14 @@ public:
     
     void Update(float deltaTime) {
         renderer.Update(deltaTime, camera);
+        debugUI.Update(deltaTime, *this);
     }
     
     void Render(int screenWidth, int screenHeight) {
         renderer.BeginFrame(camera);
         scene.Render(renderer);
         renderer.EndFrame(camera, screenWidth, screenHeight);
+        debugUI.Render();
     }
     
     void ProcessInput(GLFWwindow* window, float deltaTime) {
@@ -120,5 +128,27 @@ public:
         if (glfwGetKey(window, GLFW_KEY_0) == GLFW_RELEASE) {
             key0Pressed = false;
         }
+        
+        static bool f1Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS && !f1Pressed) {
+            debugUI.ToggleDebugWindow();
+            f1Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_RELEASE) {
+            f1Pressed = false;
+        }
+        
+        static bool f2Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS && !f2Pressed) {
+            debugUI.TogglePerformanceWindow();
+            f2Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_RELEASE) {
+            f2Pressed = false;
+        }
+    }
+    
+    void Shutdown() {
+        debugUI.Shutdown();
     }
 };

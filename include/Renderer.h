@@ -7,6 +7,7 @@
 #include "Texture.h"
 #include "Lighting.h"
 #include "ParticleSystem.h"
+#include "PostProcess.h"
 #include <vector>
 
 struct FogSettings {
@@ -41,11 +42,14 @@ public:
     FogSettings fog;
     LightingSystem lighting;
     ParticleSystem* particles;
+    PostProcessEffect* postProcess;
     float vertexSnapResolution = 64.0f;
     
     float currentAspectRatio = 320.0f / 240.0f;
+    int renderWidth = 320;
+    int renderHeight = 240;
     
-    PSXRenderer() : psxShader(nullptr), particles(nullptr) {}
+    PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr) {}
     
     bool Initialize() {
         std::string vertexSource = R"(
@@ -147,6 +151,7 @@ public:
         
         psxShader = new Shader(vertexSource, fragmentSource, true);
         particles = new ParticleSystem(500);
+        postProcess = new PostProcessEffect(renderWidth, renderHeight);
         return true;
     }
     
@@ -154,7 +159,14 @@ public:
         currentAspectRatio = aspect;
     }
     
+    void SetScreenSize(int width, int height) {
+        if (postProcess) {
+            // Keep PSX resolution for rendering, scale for display
+        }
+    }
+    
     void BeginFrame(Camera& camera) {
+        postProcess->BeginRender();
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -204,12 +216,15 @@ public:
         }
     }
     
-    void EndFrame(Camera& camera) {
+    void EndFrame(Camera& camera, int screenWidth, int screenHeight) {
         float view[16], projection[16];
         camera.GetViewMatrix(view);
         perspective(camera.Fov, currentAspectRatio, 0.1f, 100.0f, projection);
         
         particles->Render(view, projection, camera.Position);
+        
+        postProcess->EndRender();
+        postProcess->RenderToScreen(screenWidth, screenHeight);
     }
     
     void Update(float deltaTime, Camera& camera) {
@@ -219,6 +234,7 @@ public:
     ~PSXRenderer() {
         delete psxShader;
         delete particles;
+        delete postProcess;
     }
 
 private:

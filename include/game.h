@@ -52,10 +52,10 @@ public:
         renderer.Update(deltaTime, camera);
     }
     
-    void Render() {
+    void Render(int screenWidth, int screenHeight) {
         renderer.BeginFrame(camera);
         scene.Render(renderer);
-        renderer.EndFrame(camera);
+        renderer.EndFrame(camera, screenWidth, screenHeight);
     }
     
     void ProcessInput(GLFWwindow* window, float deltaTime) {
@@ -75,6 +75,36 @@ public:
         }
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_RELEASE) {
             fPressed = false;
+        }
+        
+        static bool key1Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && !key1Pressed) {
+            renderer.postProcess->currentShaderName = "psx_retro";
+            std::cout << "Switched to PSX Retro effect" << std::endl;
+            key1Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_RELEASE) {
+            key1Pressed = false;
+        }
+        
+        static bool key2Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && !key2Pressed) {
+            renderer.postProcess->currentShaderName = "scanlines";
+            std::cout << "Switched to Scanlines effect" << std::endl;
+            key2Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_RELEASE) {
+            key2Pressed = false;
+        }
+        
+        static bool key3Pressed = false;
+        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS && !key3Pressed) {
+            renderer.postProcess->currentShaderName = "crt_monitor";
+            std::cout << "Switched to CRT Monitor effect" << std::endl;
+            key3Pressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_RELEASE) {
+            key3Pressed = false;
         }
     }
 };

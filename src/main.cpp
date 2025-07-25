@@ -116,6 +116,7 @@ int main() {
         
         out vec3 vertexColor;
         out vec2 TexCoord;
+        out float fogFactor;
         
         void main() {
             vec4 worldPos = model * vec4(aPos, 1.0);
@@ -123,6 +124,11 @@ int main() {
             vec4 clipPos = projection * viewPos;
             
             clipPos.xy = floor(clipPos.xy * u_snapResolution) / u_snapResolution;
+            
+            float distance = length(viewPos.xyz);
+            float fogStart = 2.0;
+            float fogEnd = 8.0;
+            fogFactor = clamp((fogEnd - distance) / (fogEnd - fogStart), 0.0, 1.0);
             
             gl_Position = clipPos;
             vertexColor = aColor;
@@ -134,10 +140,12 @@ int main() {
         #version 330 core
         in vec3 vertexColor;
         in vec2 TexCoord;
+        in float fogFactor;
         out vec4 FragColor;
         
         uniform sampler2D ourTexture;
         uniform bool useTexture;
+        uniform vec3 fogColor;
         
         void main() {
             vec4 texColor = texture(ourTexture, TexCoord);
@@ -150,6 +158,9 @@ int main() {
             }
             
             finalColor.rgb = floor(finalColor.rgb * 32.0) / 32.0;
+            
+            finalColor.rgb = mix(fogColor, finalColor.rgb, fogFactor);
+            
             FragColor = finalColor;
         }
     )";
@@ -231,12 +242,13 @@ int main() {
 
         processInput(window);
 
-        glClearColor(0.1f, 0.05f, 0.15f, 1.0f);
+        glClearColor(0.05f, 0.02f, 0.08f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         psxShader.use();
         psxShader.setFloat("u_snapResolution", VERTEX_SNAP_RESOLUTION);
         psxShader.setBool("useTexture", hasTexture && useBedModel);
+        psxShader.setVec3("fogColor", 0.05f, 0.02f, 0.08f);
         
         if (hasTexture && useBedModel) {
             bedTexture.Bind(0);
@@ -251,19 +263,30 @@ int main() {
         perspective(camera.Fov, (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f, projection);
         psxShader.setMat4("projection", projection);
 
-        float model[16] = {
-            1, 0, 0, 0,
-            0, 1, 0, 0,
-            0, 0, 1, 0,
-            0, 0, 0, 1
+        float positions[][3] = {
+            {0.0f, 0.0f, 0.0f},
+            {3.0f, 0.0f, -2.0f},
+            {-3.0f, 0.0f, -4.0f},
+            {0.0f, 0.0f, -6.0f},
+            {5.0f, 0.0f, -8.0f},
+            {-5.0f, 0.0f, -10.0f}
         };
-        psxShader.setMat4("model", model);
 
-        if (useBedModel) {
-            bedModel.Draw();
-        } else {
-            glBindVertexArray(VAO);
-            glDrawArrays(GL_TRIANGLES, 0, 36);
+        for (int i = 0; i < 6; i++) {
+            float model[16] = {
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                positions[i][0], positions[i][1], positions[i][2], 1
+            };
+            psxShader.setMat4("model", model);
+
+            if (useBedModel) {
+                bedModel.Draw();
+            } else {
+                glBindVertexArray(VAO);
+                glDrawArrays(GL_TRIANGLES, 0, 36);
+            }
         }
 
         glfwSwapBuffers(window);

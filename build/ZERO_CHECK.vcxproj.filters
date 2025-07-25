@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\ssaya\Desktop\Game Development\C++\build\CMakeFiles\c745295b548115670a115cd792a70365\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E8EDE64E-2C98-3C1B-B004-372DE40642AB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

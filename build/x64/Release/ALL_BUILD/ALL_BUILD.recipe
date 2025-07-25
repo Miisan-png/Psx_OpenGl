@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\build\x64\Release\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\x64\Release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\build\Release\PSXHorrorEngine.exe</FullPath>
+      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\Release\PSXHorrorEngine.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\build\x64\Release\ALL_BUILD</FullPath>
+      <FullPath>C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\x64\Release\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

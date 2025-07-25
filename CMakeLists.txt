@@ -24,6 +24,7 @@ endif()
 # Add executable
 add_executable(${PROJECT_NAME} 
     src/main.cpp
+    include/Shader.h
 )
 
 # Include directories

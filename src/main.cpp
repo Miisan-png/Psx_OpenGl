@@ -13,6 +13,7 @@ float lastY = (SCREEN_HEIGHT * WINDOW_SCALE) / 2.0f;
 bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
+bool uiMode = false;
 
 int currentScreenWidth = SCREEN_WIDTH * WINDOW_SCALE;
 int currentScreenHeight = SCREEN_HEIGHT * WINDOW_SCALE;
@@ -25,6 +26,8 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    if (uiMode) return; // Don't process mouse movement in UI mode
+    
     if (firstMouse) {
         lastX = xpos;
         lastY = ypos;
@@ -44,6 +47,29 @@ void processInput(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
     
+    static bool tabPressed = false;
+    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS && !tabPressed) {
+        uiMode = !uiMode;
+        if (uiMode) {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            std::cout << "UI Mode: ON (mouse visible)" << std::endl;
+        } else {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            firstMouse = true; // Reset mouse to prevent camera jump
+            std::cout << "UI Mode: OFF (camera mode)" << std::endl;
+        }
+        tabPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE) {
+        tabPressed = false;
+    }
+    
+    // Only process camera movement in camera mode
+    if (!uiMode) {
+        game.ProcessInput(window, deltaTime);
+    }
+    
+    // Fullscreen toggle works in both modes
     static bool f11Pressed = false;
     if (glfwGetKey(window, GLFW_KEY_F11) == GLFW_PRESS && !f11Pressed) {
         static bool fullscreen = false;
@@ -72,8 +98,6 @@ void processInput(GLFWwindow* window) {
     if (glfwGetKey(window, GLFW_KEY_F11) == GLFW_RELEASE) {
         f11Pressed = false;
     }
-    
-    game.ProcessInput(window, deltaTime);
 }
 
 int main() {

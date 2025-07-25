@@ -67,6 +67,7 @@ public:
     }
     
     void ProcessInput(GLFWwindow* window, float deltaTime) {
+        // Movement only in camera mode
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
             camera.ProcessKeyboard(0, deltaTime);
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -76,6 +77,7 @@ public:
         if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
             camera.ProcessKeyboard(3, deltaTime);
         
+        // Debug UI hotkeys work in both modes
         static bool fPressed = false;
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS && !fPressed) {
             renderer.lighting.ToggleSpotlight();

@@ -8,6 +8,7 @@
 #include "Lighting.h"
 #include "ParticleSystem.h"
 #include "PostProcess.h"
+#include "ShadowMap.h"
 #include <vector>
 
 struct FogSettings {
@@ -43,13 +44,14 @@ public:
     LightingSystem lighting;
     ParticleSystem* particles;
     PostProcessEffect* postProcess;
+    ShadowMap* shadowMap;
     float vertexSnapResolution = 64.0f;
     
     float currentAspectRatio = 320.0f / 240.0f;
     int renderWidth = 320;
     int renderHeight = 240;
     
-    PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr) {}
+    PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr), shadowMap(nullptr) {}
     
     bool Initialize() {
         std::string vertexSource = R"(
@@ -150,8 +152,9 @@ public:
         )";
         
         psxShader = new Shader(vertexSource, fragmentSource, true);
-        particles = new ParticleSystem(500);
+        particles = new ParticleSystem(2000);
         postProcess = new PostProcessEffect(renderWidth, renderHeight);
+        shadowMap = new ShadowMap();
         return true;
     }
     

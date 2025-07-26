@@ -35,12 +35,13 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     }
 
     float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos;
+    float yoffset = lastY - ypos; // Reversed since y-coordinates go from bottom to top
 
     lastX = xpos;
     lastY = ypos;
 
-    game.camera.ProcessMouseMovement(xoffset, yoffset);
+    // Use PlayerController for mouse movement
+    game.ProcessMouseMovement(xoffset, yoffset);
 }
 
 void processInput(GLFWwindow* window) {
@@ -64,7 +65,7 @@ void processInput(GLFWwindow* window) {
         tabPressed = false;
     }
     
-    // Only process camera movement in camera mode
+    // Only process player input in camera mode
     if (!uiMode) {
         game.ProcessInput(window, deltaTime);
     }
@@ -114,7 +115,7 @@ int main() {
     GLFWwindow* window = glfwCreateWindow(
         SCREEN_WIDTH * WINDOW_SCALE, 
         SCREEN_HEIGHT * WINDOW_SCALE, 
-        "PSX Horror Engine", 
+        "PSX Horror Engine - FPS Controller", 
         NULL, 
         NULL
     );
@@ -141,7 +142,13 @@ int main() {
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
-    std::cout << "PSX Horror Engine initialized!" << std::endl;
+    std::cout << "PSX Horror Engine with FPS Controller initialized!" << std::endl;
+    std::cout << "Controls:" << std::endl;
+    std::cout << "  WASD - Move" << std::endl;
+    std::cout << "  Mouse - Look around" << std::endl;
+    std::cout << "  Left Shift - Run" << std::endl;
+    std::cout << "  H - Toggle head bob" << std::endl;
+    std::cout << "  TAB - Toggle UI mode" << std::endl;
 
     if (!game.Initialize(window)) {
         std::cerr << "Failed to initialize game" << std::endl;

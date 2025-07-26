@@ -7,6 +7,7 @@
 #include "Model.h"
 #include "Texture.h"
 #include "DebugUI.h"
+#include "PlayerController.h" // Add this include
 
 class Game {
 public:
@@ -14,12 +15,13 @@ public:
     Scene scene;
     Camera camera;
     DebugUI debugUI;
+    PlayerController* playerController; // Add player controller
     
     Model bedModel;
     Texture bedTexture;
     
     bool Initialize(GLFWwindow* window) {
-        camera = Camera(0.0f, 0.0f, 3.0f);
+        camera = Camera(0.0f, 1.7f, 3.0f); // Set eye height to 1.7m (typical player height)
 
         if (!renderer.Initialize()) {
             return false;
@@ -28,6 +30,9 @@ public:
         if (!debugUI.Initialize(window)) {
             return false;
         }
+        
+        // Initialize player controller
+        playerController = new PlayerController(&camera);
         
         if (bedModel.LoadFromFile("assets/GLB/bed.glb")) {
             if (bedTexture.LoadFromFile("assets/Texture/bed/Bed.png")) {
@@ -68,15 +73,10 @@ public:
     }
     
     void ProcessInput(GLFWwindow* window, float deltaTime) {
-        // Movement only in camera mode
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            camera.ProcessKeyboard(0, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            camera.ProcessKeyboard(1, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            camera.ProcessKeyboard(2, deltaTime);
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            camera.ProcessKeyboard(3, deltaTime);
+        // Use PlayerController for movement instead of direct camera control
+        if (playerController) {
+            playerController->ProcessKeyboardInput(window, deltaTime);
+        }
         
         // Debug UI hotkeys work in both modes
         static bool fPressed = false;
@@ -161,9 +161,30 @@ public:
         if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_RELEASE) {
             f5Pressed = false;
         }
+        
+        // Head bob toggle for testing
+        static bool hPressed = false;
+        if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS && !hPressed) {
+            if (playerController) {
+                playerController->SetHeadBobEnabled(!playerController->headBobEnabled);
+                std::cout << "Head bob: " << (playerController->headBobEnabled ? "ENABLED" : "DISABLED") << std::endl;
+            }
+            hPressed = true;
+        }
+        if (glfwGetKey(window, GLFW_KEY_H) == GLFW_RELEASE) {
+            hPressed = false;
+        }
+    }
+    
+    // Add method for mouse input (called from main.cpp)
+    void ProcessMouseMovement(float xOffset, float yOffset) {
+        if (playerController) {
+            playerController->ProcessMouseMovement(xOffset, yOffset);
+        }
     }
     
     void Shutdown() {
+        delete playerController; // Clean up player controller
         debugUI.Shutdown();
     }
 };

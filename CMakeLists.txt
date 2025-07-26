@@ -28,6 +28,9 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/DebugUI.cpp
     src/stb_image_impl.cpp
+    src/editor/ConsoleWindow.cpp
+    src/editor/PerformanceWindow.cpp
+    src/editor/ImGuiTheme.cpp
     include/Shader.h
 )
 

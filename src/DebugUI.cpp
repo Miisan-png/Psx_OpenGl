@@ -5,6 +5,9 @@
 #include <imgui_impl_opengl3.h>
 #include "DebugUI.h"
 #include "Game.h"
+#include "editor/ConsoleWindow.h"
+#include "editor/PerformanceWindow.h"
+#include "editor/ImGuiTheme.h"
 
 bool DebugUI::Initialize(GLFWwindow* window) {
     IMGUI_CHECKVERSION();
@@ -12,10 +15,16 @@ bool DebugUI::Initialize(GLFWwindow* window) {
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     
-    ImGui::StyleColorsDark();
+    ImGuiTheme::SetPinkTheme();
     
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330");
+    
+    consoleWindow = new ConsoleWindow();
+    performanceWindow = new PerformanceWindow();
+    
+    consoleWindow->AddLog("[INFO] PSX Horror Engine initialized!");
+    consoleWindow->AddLog("[INFO] Console system ready");
     
     return true;
 }
@@ -35,13 +44,14 @@ void DebugUI::Update(float deltaTime, Game& game) {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
     
+    performanceWindow->Update(deltaTime);
+    
     if (showDebugWindow) {
         RenderDebugWindow(game);
     }
     
-    if (showPerformanceWindow) {
-        RenderPerformanceWindow();
-    }
+    consoleWindow->Draw();
+    performanceWindow->Draw();
 }
 
 void DebugUI::Render() {
@@ -54,10 +64,17 @@ void DebugUI::ToggleDebugWindow() {
 }
 
 void DebugUI::TogglePerformanceWindow() {
-    showPerformanceWindow = !showPerformanceWindow;
+    performanceWindow->Toggle();
+}
+
+void DebugUI::ToggleConsoleWindow() {
+    consoleWindow->Toggle();
 }
 
 void DebugUI::Shutdown() {
+    delete consoleWindow;
+    delete performanceWindow;
+    
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
@@ -144,37 +161,28 @@ void DebugUI::RenderDebugWindow(Game& game) {
         ImGui::Text("Aspect Ratio: %.3f", game.renderer.currentAspectRatio);
     }
     
-    ImGui::End();
-}
-
-void DebugUI::RenderPerformanceWindow() {
-    ImGui::Begin("Performance", &showPerformanceWindow);
-    
-    ImGui::Text("FPS: %.1f", fps);
-    ImGui::Text("Frame Time: %.3f ms", frameTime * 1000.0f);
-    
-    static float fpsHistory[100] = {};
-    static int fpsHistoryOffset = 0;
-    fpsHistory[fpsHistoryOffset] = fps;
-    fpsHistoryOffset = (fpsHistoryOffset + 1) % 100;
-    
-    ImGui::PlotLines("FPS", fpsHistory, 100, fpsHistoryOffset, nullptr, 0.0f, 120.0f, ImVec2(0, 80));
-    
-    ImGui::Separator();
-    ImGui::Text("Controls:");
-    ImGui::Text("WASD - Move");
-    ImGui::Text("F - Toggle Flashlight");
-    ImGui::Text("0 - Toggle All Effects");
-    ImGui::Text("1-3 - Switch Shaders");
-    ImGui::Text("F11 - Fullscreen");
-    ImGui::Text("F1 - Toggle Debug (this window)");
-    ImGui::Text("F2 - Toggle Performance");
-    
-    ImGui::Separator();
-    ImGui::Text("🌌 Skybox Info:");
-    ImGui::Text("✨ Stars: Hot Pink, Cyan, Electric Green");
-    ImGui::Text("☄️ Meteors: Cyan, Hot Pink, Lime Green");
-    ImGui::Text("🌃 Fully procedural apocalyptic sky");
+    if (ImGui::CollapsingHeader("Editor Windows")) {
+        if (ImGui::Button("Toggle Console")) {
+            ToggleConsoleWindow();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Toggle Performance")) {
+            TogglePerformanceWindow();
+        }
+        
+        ImGui::Separator();
+        if (ImGui::Button("Pink Theme")) {
+            ImGuiTheme::SetPinkTheme();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Dark Theme")) {
+            ImGuiTheme::SetDarkTheme();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Light Theme")) {
+            ImGuiTheme::SetLightTheme();
+        }
+    }
     
     ImGui::End();
 }

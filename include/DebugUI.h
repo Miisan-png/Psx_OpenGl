@@ -3,14 +3,13 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-// Forward declarations
 class Game;
+class ConsoleWindow;
+class PerformanceWindow;
 
 class DebugUI {
 public:
     bool showDebugWindow = false;
-    bool showPerformanceWindow = false;
-
     bool showSceneEditor = false;
     bool showAssetBrowser = false;
     bool isDragging = false;
@@ -23,11 +22,15 @@ public:
     int frameCount = 0;
     float fpsTimer = 0.0f;
     
+    ConsoleWindow* consoleWindow = nullptr;
+    PerformanceWindow* performanceWindow = nullptr;
+    
     bool Initialize(GLFWwindow* window);
     void Update(float deltaTime, Game& game);
     void Render();
     void ToggleDebugWindow();
     void TogglePerformanceWindow();
+    void ToggleConsoleWindow();
     void Shutdown();
 
     void ToggleSceneEditor() {
@@ -36,5 +39,4 @@ public:
 
 private:
     void RenderDebugWindow(Game& game);
-    void RenderPerformanceWindow();
 };

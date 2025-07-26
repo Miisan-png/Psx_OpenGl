@@ -31,6 +31,7 @@ add_executable(${PROJECT_NAME}
     src/editor/ConsoleWindow.cpp
     src/editor/PerformanceWindow.cpp
     src/editor/ImGuiTheme.cpp
+    src/editor/SceneViewportWindow.cpp
     include/Shader.h
 )
 

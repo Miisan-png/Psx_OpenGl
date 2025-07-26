@@ -6,6 +6,7 @@
 class Game;
 class ConsoleWindow;
 class PerformanceWindow;
+class SceneViewportWindow;
 
 class DebugUI {
 public:
@@ -24,6 +25,7 @@ public:
     
     ConsoleWindow* consoleWindow = nullptr;
     PerformanceWindow* performanceWindow = nullptr;
+    SceneViewportWindow* sceneViewportWindow = nullptr;
     
     bool Initialize(GLFWwindow* window);
     void Update(float deltaTime, Game& game);
@@ -31,6 +33,7 @@ public:
     void ToggleDebugWindow();
     void TogglePerformanceWindow();
     void ToggleConsoleWindow();
+    void ToggleSceneViewportWindow();
     void Shutdown();
 
     void ToggleSceneEditor() {

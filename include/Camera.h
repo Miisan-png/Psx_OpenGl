@@ -85,7 +85,6 @@ public:
         updateCameraVectors();
     }
 
-private:
     void updateCameraVectors() {
         float front[3];
         front[0] = cos(radians(Yaw)) * cos(radians(Pitch));
@@ -99,6 +98,7 @@ private:
         normalize(Up, Up);
     }
 
+private:
     float radians(float degrees) {
         return degrees * 3.14159265359f / 180.0f;
     }

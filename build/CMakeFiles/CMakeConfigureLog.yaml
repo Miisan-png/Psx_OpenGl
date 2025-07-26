@@ -29423,3 +29423,1488 @@ events:
         
       exitCode: 1
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:48:15 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.76
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:48:16 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.66
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yjdzoh"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yjdzoh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yjdzoh'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4bcde.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:48:17 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yjdzoh\\cmTC_4bcde.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_4bcde.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yjdzoh\\Debug\\".
+          Creating directory "cmTC_4bcde.dir\\Debug\\cmTC_4bcde.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_4bcde.dir\\Debug\\cmTC_4bcde.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_4bcde.dir\\Debug\\cmTC_4bcde.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4bcde.dir\\Debug\\\\" /Fd"cmTC_4bcde.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCCompilerABI.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4bcde.dir\\Debug\\\\" /Fd"cmTC_4bcde.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yjdzoh\\Debug\\cmTC_4bcde.exe" /INCREMENTAL /ILK:"cmTC_4bcde.dir\\Debug\\cmTC_4bcde.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yjdzoh/Debug/cmTC_4bcde.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yjdzoh/Debug/cmTC_4bcde.lib" /MACHINE:X64  /machine:x64 cmTC_4bcde.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_4bcde.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yjdzoh\\Debug\\cmTC_4bcde.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_4bcde.dir\\Debug\\cmTC_4bcde.tlog\\unsuccessfulbuild".
+          Touching "cmTC_4bcde.dir\\Debug\\cmTC_4bcde.tlog\\cmTC_4bcde.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yjdzoh\\cmTC_4bcde.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.54
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-q58wat"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-q58wat"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-q58wat'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_063ea.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:48:18 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q58wat\\cmTC_063ea.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_063ea.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q58wat\\Debug\\".
+          Creating directory "cmTC_063ea.dir\\Debug\\cmTC_063ea.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_063ea.dir\\Debug\\cmTC_063ea.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_063ea.dir\\Debug\\cmTC_063ea.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_063ea.dir\\Debug\\\\" /Fd"cmTC_063ea.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCXXCompilerABI.cpp
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_063ea.dir\\Debug\\\\" /Fd"cmTC_063ea.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q58wat\\Debug\\cmTC_063ea.exe" /INCREMENTAL /ILK:"cmTC_063ea.dir\\Debug\\cmTC_063ea.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-q58wat/Debug/cmTC_063ea.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-q58wat/Debug/cmTC_063ea.lib" /MACHINE:X64  /machine:x64 cmTC_063ea.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_063ea.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q58wat\\Debug\\cmTC_063ea.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_063ea.dir\\Debug\\cmTC_063ea.tlog\\unsuccessfulbuild".
+          Touching "cmTC_063ea.dir\\Debug\\cmTC_063ea.tlog\\cmTC_063ea.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-q58wat\\cmTC_063ea.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.55
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yl6eqz"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yl6eqz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-yl6eqz'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ce773.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:48:19 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\cmTC_ce773.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_ce773.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\Debug\\".
+          Creating directory "cmTC_ce773.dir\\Debug\\cmTC_ce773.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_ce773.dir\\Debug\\cmTC_ce773.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ce773.dir\\Debug\\cmTC_ce773.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce773.dir\\Debug\\\\" /Fd"cmTC_ce773.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\src.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          src.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce773.dir\\Debug\\\\" /Fd"cmTC_ce773.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\src.c"
+        C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\cmTC_ce773.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\cmTC_ce773.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\cmTC_ce773.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yl6eqz\\cmTC_ce773.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.40
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-0zrk2x"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-0zrk2x"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-0zrk2x'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_79c42.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:48:20 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\cmTC_79c42.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_79c42.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\Debug\\".
+          Creating directory "cmTC_79c42.dir\\Debug\\cmTC_79c42.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_79c42.dir\\Debug\\cmTC_79c42.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_79c42.dir\\Debug\\cmTC_79c42.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_79c42.dir\\Debug\\\\" /Fd"cmTC_79c42.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_79c42.dir\\Debug\\\\" /Fd"cmTC_79c42.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\Debug\\cmTC_79c42.exe" /INCREMENTAL /ILK:"cmTC_79c42.dir\\Debug\\cmTC_79c42.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-0zrk2x/Debug/cmTC_79c42.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-0zrk2x/Debug/cmTC_79c42.lib" /MACHINE:X64  /machine:x64 cmTC_79c42.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\cmTC_79c42.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\cmTC_79c42.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\cmTC_79c42.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0zrk2x\\cmTC_79c42.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.43
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ernonj"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ernonj"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ernonj'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c3ee0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:48:20 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\cmTC_c3ee0.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_c3ee0.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\Debug\\".
+          Creating directory "cmTC_c3ee0.dir\\Debug\\cmTC_c3ee0.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_c3ee0.dir\\Debug\\cmTC_c3ee0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_c3ee0.dir\\Debug\\cmTC_c3ee0.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c3ee0.dir\\Debug\\\\" /Fd"cmTC_c3ee0.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c3ee0.dir\\Debug\\\\" /Fd"cmTC_c3ee0.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\Debug\\cmTC_c3ee0.exe" /INCREMENTAL /ILK:"cmTC_c3ee0.dir\\Debug\\cmTC_c3ee0.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ernonj/Debug/cmTC_c3ee0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ernonj/Debug/cmTC_c3ee0.lib" /MACHINE:X64  /machine:x64 cmTC_c3ee0.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\cmTC_c3ee0.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\cmTC_c3ee0.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\cmTC_c3ee0.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ernonj\\cmTC_c3ee0.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.42
+        
+      exitCode: 1
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:50:01 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.77
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:50:02 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.60
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kry94r"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kry94r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kry94r'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ce8d4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:50:03 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kry94r\\cmTC_ce8d4.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_ce8d4.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kry94r\\Debug\\".
+          Creating directory "cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce8d4.dir\\Debug\\\\" /Fd"cmTC_ce8d4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCCompilerABI.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce8d4.dir\\Debug\\\\" /Fd"cmTC_ce8d4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kry94r\\Debug\\cmTC_ce8d4.exe" /INCREMENTAL /ILK:"cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kry94r/Debug/cmTC_ce8d4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kry94r/Debug/cmTC_ce8d4.lib" /MACHINE:X64  /machine:x64 cmTC_ce8d4.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_ce8d4.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kry94r\\Debug\\cmTC_ce8d4.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.tlog\\unsuccessfulbuild".
+          Touching "cmTC_ce8d4.dir\\Debug\\cmTC_ce8d4.tlog\\cmTC_ce8d4.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kry94r\\cmTC_ce8d4.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.54
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-274sp0"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-274sp0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-274sp0'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_41aef.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:50:04 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-274sp0\\cmTC_41aef.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_41aef.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-274sp0\\Debug\\".
+          Creating directory "cmTC_41aef.dir\\Debug\\cmTC_41aef.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_41aef.dir\\Debug\\cmTC_41aef.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_41aef.dir\\Debug\\cmTC_41aef.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_41aef.dir\\Debug\\\\" /Fd"cmTC_41aef.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCXXCompilerABI.cpp
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_41aef.dir\\Debug\\\\" /Fd"cmTC_41aef.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-274sp0\\Debug\\cmTC_41aef.exe" /INCREMENTAL /ILK:"cmTC_41aef.dir\\Debug\\cmTC_41aef.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-274sp0/Debug/cmTC_41aef.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-274sp0/Debug/cmTC_41aef.lib" /MACHINE:X64  /machine:x64 cmTC_41aef.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_41aef.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-274sp0\\Debug\\cmTC_41aef.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_41aef.dir\\Debug\\cmTC_41aef.tlog\\unsuccessfulbuild".
+          Touching "cmTC_41aef.dir\\Debug\\cmTC_41aef.tlog\\cmTC_41aef.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-274sp0\\cmTC_41aef.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kxlnau"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kxlnau"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-kxlnau'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e23a4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:50:05 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\cmTC_e23a4.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_e23a4.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\Debug\\".
+          Creating directory "cmTC_e23a4.dir\\Debug\\cmTC_e23a4.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_e23a4.dir\\Debug\\cmTC_e23a4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_e23a4.dir\\Debug\\cmTC_e23a4.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e23a4.dir\\Debug\\\\" /Fd"cmTC_e23a4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\src.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          src.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e23a4.dir\\Debug\\\\" /Fd"cmTC_e23a4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\src.c"
+        C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\cmTC_e23a4.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\cmTC_e23a4.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\cmTC_e23a4.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kxlnau\\cmTC_e23a4.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.40
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-6qgjm5"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-6qgjm5"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-6qgjm5'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_71e41.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:50:05 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\cmTC_71e41.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_71e41.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\Debug\\".
+          Creating directory "cmTC_71e41.dir\\Debug\\cmTC_71e41.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_71e41.dir\\Debug\\cmTC_71e41.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_71e41.dir\\Debug\\cmTC_71e41.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_71e41.dir\\Debug\\\\" /Fd"cmTC_71e41.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_71e41.dir\\Debug\\\\" /Fd"cmTC_71e41.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\Debug\\cmTC_71e41.exe" /INCREMENTAL /ILK:"cmTC_71e41.dir\\Debug\\cmTC_71e41.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-6qgjm5/Debug/cmTC_71e41.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-6qgjm5/Debug/cmTC_71e41.lib" /MACHINE:X64  /machine:x64 cmTC_71e41.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\cmTC_71e41.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\cmTC_71e41.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\cmTC_71e41.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6qgjm5\\cmTC_71e41.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.48
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ug7uhi"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ug7uhi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ug7uhi'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_512cc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:50:06 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\cmTC_512cc.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_512cc.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\Debug\\".
+          Creating directory "cmTC_512cc.dir\\Debug\\cmTC_512cc.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_512cc.dir\\Debug\\cmTC_512cc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_512cc.dir\\Debug\\cmTC_512cc.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_512cc.dir\\Debug\\\\" /Fd"cmTC_512cc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_512cc.dir\\Debug\\\\" /Fd"cmTC_512cc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\Debug\\cmTC_512cc.exe" /INCREMENTAL /ILK:"cmTC_512cc.dir\\Debug\\cmTC_512cc.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ug7uhi/Debug/cmTC_512cc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-ug7uhi/Debug/cmTC_512cc.lib" /MACHINE:X64  /machine:x64 cmTC_512cc.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\cmTC_512cc.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\cmTC_512cc.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\cmTC_512cc.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ug7uhi\\cmTC_512cc.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.41
+        
+      exitCode: 1
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:51:42 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.65
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+      Build started 7/26/2025 10:51:43 AM.
+      
+      Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\3.30.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.55
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/3.30.2/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-e5ofde"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-e5ofde"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-e5ofde'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_21a9c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:51:44 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e5ofde\\cmTC_21a9c.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_21a9c.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e5ofde\\Debug\\".
+          Creating directory "cmTC_21a9c.dir\\Debug\\cmTC_21a9c.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_21a9c.dir\\Debug\\cmTC_21a9c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_21a9c.dir\\Debug\\cmTC_21a9c.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_21a9c.dir\\Debug\\\\" /Fd"cmTC_21a9c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCCompilerABI.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_21a9c.dir\\Debug\\\\" /Fd"cmTC_21a9c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e5ofde\\Debug\\cmTC_21a9c.exe" /INCREMENTAL /ILK:"cmTC_21a9c.dir\\Debug\\cmTC_21a9c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-e5ofde/Debug/cmTC_21a9c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-e5ofde/Debug/cmTC_21a9c.lib" /MACHINE:X64  /machine:x64 cmTC_21a9c.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_21a9c.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e5ofde\\Debug\\cmTC_21a9c.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_21a9c.dir\\Debug\\cmTC_21a9c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_21a9c.dir\\Debug\\cmTC_21a9c.tlog\\cmTC_21a9c.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e5ofde\\cmTC_21a9c.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.47
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-lnj1c0"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-lnj1c0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-lnj1c0'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6558e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:51:45 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lnj1c0\\cmTC_6558e.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_6558e.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lnj1c0\\Debug\\".
+          Creating directory "cmTC_6558e.dir\\Debug\\cmTC_6558e.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_6558e.dir\\Debug\\cmTC_6558e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_6558e.dir\\Debug\\cmTC_6558e.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6558e.dir\\Debug\\\\" /Fd"cmTC_6558e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CMakeCXXCompilerABI.cpp
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6558e.dir\\Debug\\\\" /Fd"cmTC_6558e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.30\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lnj1c0\\Debug\\cmTC_6558e.exe" /INCREMENTAL /ILK:"cmTC_6558e.dir\\Debug\\cmTC_6558e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-lnj1c0/Debug/cmTC_6558e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-lnj1c0/Debug/cmTC_6558e.lib" /MACHINE:X64  /machine:x64 cmTC_6558e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_6558e.vcxproj -> C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lnj1c0\\Debug\\cmTC_6558e.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_6558e.dir\\Debug\\cmTC_6558e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_6558e.dir\\Debug\\cmTC_6558e.tlog\\cmTC_6558e.lastbuildstate".
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lnj1c0\\cmTC_6558e.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.47
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.34.31948.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-5o1d0e"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-5o1d0e"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-5o1d0e'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e6fe8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:51:45 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\cmTC_e6fe8.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_e6fe8.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\Debug\\".
+          Creating directory "cmTC_e6fe8.dir\\Debug\\cmTC_e6fe8.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_e6fe8.dir\\Debug\\cmTC_e6fe8.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_e6fe8.dir\\Debug\\cmTC_e6fe8.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e6fe8.dir\\Debug\\\\" /Fd"cmTC_e6fe8.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\src.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          src.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e6fe8.dir\\Debug\\\\" /Fd"cmTC_e6fe8.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\src.c"
+        C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\cmTC_e6fe8.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\cmTC_e6fe8.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\cmTC_e6fe8.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5o1d0e\\cmTC_e6fe8.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.32
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-c2ga26"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-c2ga26"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-c2ga26'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_caab3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:51:46 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\cmTC_caab3.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_caab3.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\Debug\\".
+          Creating directory "cmTC_caab3.dir\\Debug\\cmTC_caab3.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_caab3.dir\\Debug\\cmTC_caab3.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_caab3.dir\\Debug\\cmTC_caab3.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_caab3.dir\\Debug\\\\" /Fd"cmTC_caab3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_caab3.dir\\Debug\\\\" /Fd"cmTC_caab3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\Debug\\cmTC_caab3.exe" /INCREMENTAL /ILK:"cmTC_caab3.dir\\Debug\\cmTC_caab3.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-c2ga26/Debug/cmTC_caab3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-c2ga26/Debug/cmTC_caab3.lib" /MACHINE:X64  /machine:x64 cmTC_caab3.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\cmTC_caab3.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\cmTC_caab3.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\cmTC_caab3.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-c2ga26\\cmTC_caab3.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.47
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/glfw3/glfw3Config.cmake:2 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/imgui/imgui-config.cmake:33 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "CMakeLists.txt:10 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-7wo5xz"
+      binary: "C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-7wo5xz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-7wo5xz'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a9eee.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.10.4+10fbfbf2e for .NET Framework
+        Build started 7/26/2025 10:51:47 AM.
+        
+        Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\cmTC_a9eee.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_a9eee.dir\\Debug\\".
+          Creating directory "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\Debug\\".
+          Creating directory "cmTC_a9eee.dir\\Debug\\cmTC_a9eee.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_a9eee.dir\\Debug\\cmTC_a9eee.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_a9eee.dir\\Debug\\cmTC_a9eee.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a9eee.dir\\Debug\\\\" /Fd"cmTC_a9eee.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.34.31948 for x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a9eee.dir\\Debug\\\\" /Fd"cmTC_a9eee.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\Debug\\cmTC_a9eee.exe" /INCREMENTAL /ILK:"cmTC_a9eee.dir\\Debug\\cmTC_a9eee.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-7wo5xz/Debug/cmTC_a9eee.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/ssaya/Desktop/Game Development/C++/Psx_OpenGl/build/CMakeFiles/CMakeScratch/TryCompile-7wo5xz/Debug/cmTC_a9eee.lib" /MACHINE:X64  /machine:x64 cmTC_a9eee.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\cmTC_a9eee.vcxproj]
+        Done Building Project "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\cmTC_a9eee.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\cmTC_a9eee.vcxproj" (default target) (1) ->
+        (Link target) -> 
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\ssaya\\Desktop\\Game Development\\C++\\Psx_OpenGl\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7wo5xz\\cmTC_a9eee.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.43
+        
+      exitCode: 1
+...

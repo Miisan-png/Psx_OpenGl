@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "editor/ConsoleWindow.h"
 #include "editor/PerformanceWindow.h"
+#include "editor/SceneViewportWindow.h"
 #include "editor/ImGuiTheme.h"
 
 bool DebugUI::Initialize(GLFWwindow* window) {
@@ -22,6 +23,7 @@ bool DebugUI::Initialize(GLFWwindow* window) {
     
     consoleWindow = new ConsoleWindow();
     performanceWindow = new PerformanceWindow();
+    sceneViewportWindow = new SceneViewportWindow();
     
     consoleWindow->AddLog("[INFO] PSX Horror Engine initialized!");
     consoleWindow->AddLog("[INFO] Console system ready");
@@ -52,6 +54,7 @@ void DebugUI::Update(float deltaTime, Game& game) {
     
     consoleWindow->Draw();
     performanceWindow->Draw();
+    sceneViewportWindow->Draw(game);
 }
 
 void DebugUI::Render() {
@@ -71,9 +74,14 @@ void DebugUI::ToggleConsoleWindow() {
     consoleWindow->Toggle();
 }
 
+void DebugUI::ToggleSceneViewportWindow() {
+    sceneViewportWindow->Toggle();
+}
+
 void DebugUI::Shutdown() {
     delete consoleWindow;
     delete performanceWindow;
+    delete sceneViewportWindow;
     
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
@@ -168,6 +176,10 @@ void DebugUI::RenderDebugWindow(Game& game) {
         ImGui::SameLine();
         if (ImGui::Button("Toggle Performance")) {
             TogglePerformanceWindow();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Toggle Viewport")) {
+            ToggleSceneViewportWindow();
         }
         
         ImGui::Separator();

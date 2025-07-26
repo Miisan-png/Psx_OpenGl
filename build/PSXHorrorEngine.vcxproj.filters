@@ -19,6 +19,9 @@
     <ClCompile Include="C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\ImGuiTheme.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\SceneViewportWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>

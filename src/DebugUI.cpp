@@ -142,19 +142,152 @@ void DebugUI::RenderDebugWindow(Game& game) {
         ImGui::SliderFloat("Height End", &game.renderer.fog.heightEnd, -5.0f, 10.0f);
         ImGui::ColorEdit3("Fog Color", game.renderer.fog.color);
     }
+
+    // Add this section to your existing RenderDebugWindow function in DebugUI.cpp
+// Replace the existing "Lighting Controls" section with this enhanced version:
+
+if (ImGui::CollapsingHeader("💡 Enhanced Lighting System", ImGuiTreeNodeFlags_DefaultOpen)) {
+    // Directional Light Controls
+    if (ImGui::TreeNode("🌞 Directional Light (General Scene Lighting)")) {
+        ImGui::Checkbox("Enable Directional Light", &game.renderer.lighting.directional.enabled);
+        
+        if (game.renderer.lighting.directional.enabled) {
+            ImGui::Separator();
+            ImGui::Text("Direction (X, Y, Z):");
+            if (ImGui::SliderFloat3("Direction", game.renderer.lighting.directional.direction, -1.0f, 1.0f)) {
+                game.renderer.lighting.directional.NormalizeDirection();
+            }
+            
+            ImGui::SliderFloat("Intensity", &game.renderer.lighting.directional.intensity, 0.0f, 2.0f);
+            ImGui::ColorEdit3("Color", game.renderer.lighting.directional.color);
+            
+            ImGui::Separator();
+            ImGui::Text("Quick Presets:");
+            if (ImGui::Button("☀️ Sunlight")) {
+                game.renderer.lighting.SetSunlightPreset();
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("🌙 Moonlight")) {
+                game.renderer.lighting.SetMoonlightPreset();
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("👻 Horror")) {
+                game.renderer.lighting.SetHorrorPreset();
+            }
+            
+            // Real-time direction helpers
+            ImGui::Separator();
+            ImGui::Text("Direction Helpers:");
+            if (ImGui::Button("⬇️ Top Down")) {
+                game.renderer.lighting.SetDirectionalDirection(0.0f, -1.0f, 0.0f);
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("↗️ Angled")) {
+                game.renderer.lighting.SetDirectionalDirection(-0.3f, -0.8f, -0.5f);
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("➡️ Side")) {
+                game.renderer.lighting.SetDirectionalDirection(1.0f, 0.0f, 0.0f);
+            }
+        }
+        ImGui::TreePop();
+    }
     
-    if (ImGui::CollapsingHeader("Lighting Controls")) {
-        ImGui::Checkbox("Spotlight Enabled", &game.renderer.lighting.spotlight.enabled);
-        ImGui::SliderFloat("Spotlight Intensity", &game.renderer.lighting.spotlight.intensity, 0.0f, 5.0f);
-        ImGui::SliderFloat("Spotlight Range", &game.renderer.lighting.spotlight.range, 1.0f, 30.0f);
-        ImGui::SliderFloat("Inner Cone", &game.renderer.lighting.spotlight.innerCone, 5.0f, 45.0f);
-        ImGui::SliderFloat("Outer Cone", &game.renderer.lighting.spotlight.outerCone, 10.0f, 60.0f);
-        ImGui::ColorEdit3("Spotlight Color", game.renderer.lighting.spotlight.color);
+    // Spotlight Controls (Enhanced)
+    if (ImGui::TreeNode("🔦 Spotlight (Flashlight)")) {
+        ImGui::Checkbox("Enable Spotlight", &game.renderer.lighting.spotlight.enabled);
+        
+        if (game.renderer.lighting.spotlight.enabled) {
+            ImGui::SliderFloat("Intensity", &game.renderer.lighting.spotlight.intensity, 0.0f, 5.0f);
+            ImGui::SliderFloat("Range", &game.renderer.lighting.spotlight.range, 1.0f, 30.0f);
+            ImGui::SliderFloat("Inner Cone", &game.renderer.lighting.spotlight.innerCone, 5.0f, 45.0f);
+            ImGui::SliderFloat("Outer Cone", &game.renderer.lighting.spotlight.outerCone, 10.0f, 60.0f);
+            ImGui::ColorEdit3("Color", game.renderer.lighting.spotlight.color);
+            
+            ImGui::Separator();
+            ImGui::Text("Quick Colors:");
+            if (ImGui::Button("🟡 Warm")) {
+                game.renderer.lighting.spotlight.color[0] = 1.0f;
+                game.renderer.lighting.spotlight.color[1] = 0.9f;
+                game.renderer.lighting.spotlight.color[2] = 0.7f;
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("⚪ Cool")) {
+                game.renderer.lighting.spotlight.color[0] = 0.7f;
+                game.renderer.lighting.spotlight.color[1] = 0.8f;
+                game.renderer.lighting.spotlight.color[2] = 1.0f;
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("🔴 Red")) {
+                game.renderer.lighting.spotlight.color[0] = 1.0f;
+                game.renderer.lighting.spotlight.color[1] = 0.3f;
+                game.renderer.lighting.spotlight.color[2] = 0.3f;
+            }
+        }
+        ImGui::TreePop();
+    }
+    
+    // Ambient Light Controls
+    if (ImGui::TreeNode("🌫️ Ambient Light (Base Level)")) {
+        ImGui::SliderFloat("Intensity", &game.renderer.lighting.ambient.intensity, 0.0f, 1.0f);
+        ImGui::ColorEdit3("Color", game.renderer.lighting.ambient.color);
         
         ImGui::Separator();
-        ImGui::SliderFloat("Ambient Intensity", &game.renderer.lighting.ambient.intensity, 0.0f, 1.0f);
-        ImGui::ColorEdit3("Ambient Color", game.renderer.lighting.ambient.color);
+        ImGui::Text("Ambient Presets:");
+        if (ImGui::Button("🌅 Dawn")) {
+            game.renderer.lighting.ambient.color[0] = 0.2f;
+            game.renderer.lighting.ambient.color[1] = 0.15f;
+            game.renderer.lighting.ambient.color[2] = 0.1f;
+            game.renderer.lighting.ambient.intensity = 0.4f;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("🌃 Night")) {
+            game.renderer.lighting.ambient.color[0] = 0.05f;
+            game.renderer.lighting.ambient.color[1] = 0.08f;
+            game.renderer.lighting.ambient.color[2] = 0.15f;
+            game.renderer.lighting.ambient.intensity = 0.2f;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("👹 Horror")) {
+            game.renderer.lighting.ambient.color[0] = 0.1f;
+            game.renderer.lighting.ambient.color[1] = 0.05f;
+            game.renderer.lighting.ambient.color[2] = 0.15f;
+            game.renderer.lighting.ambient.intensity = 0.3f;
+        }
+        ImGui::TreePop();
     }
+    
+    // Lighting System Overview
+    ImGui::Separator();
+    if (ImGui::CollapsingHeader("📊 Lighting Overview")) {
+        ImGui::Text("Active Lights:");
+        ImGui::BulletText("Directional: %s (%.1f intensity)", 
+            game.renderer.lighting.directional.enabled ? "ON" : "OFF",
+            game.renderer.lighting.directional.intensity);
+        ImGui::BulletText("Spotlight: %s (%.1f intensity)", 
+            game.renderer.lighting.spotlight.enabled ? "ON" : "OFF",
+            game.renderer.lighting.spotlight.intensity);
+        ImGui::BulletText("Ambient: %.1f intensity", 
+            game.renderer.lighting.ambient.intensity);
+        
+        ImGui::Separator();
+        if (ImGui::Button("💡 All Lights ON")) {
+            game.renderer.lighting.directional.enabled = true;
+            game.renderer.lighting.spotlight.enabled = true;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("🌑 All Lights OFF")) {
+            game.renderer.lighting.directional.enabled = false;
+            game.renderer.lighting.spotlight.enabled = false;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("🔄 Reset All")) {
+            game.renderer.lighting = LightingSystem(); // Reset to defaults
+        }
+    }
+}
+    
+  
     
     if (ImGui::CollapsingHeader("Particle System")) {
         ImGui::SliderFloat("Spawn Rate", &game.renderer.particles->spawnRate, 1.0f, 200.0f);

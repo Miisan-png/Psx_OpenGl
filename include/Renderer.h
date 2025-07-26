@@ -1,7 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
-#include <iostream>  // ADD THIS LINE
+#include <iostream>
 #include "Shader.h"
 #include "Camera.h"
 #include "Model.h"
@@ -56,7 +56,6 @@ public:
     int renderWidth = 320;
     int renderHeight = 240;
     
-    // FIXED CONSTRUCTOR - ADD skybox(nullptr)
     PSXRenderer() : psxShader(nullptr), particles(nullptr), postProcess(nullptr), shadowMap(nullptr), skybox(nullptr) {}
     
     bool Initialize() {
@@ -80,14 +79,17 @@ public:
             out float fogFactor;
             out vec3 FragPos;
             out vec3 WorldPos;
+            out vec3 Normal;
             
             void main() {
                 vec4 worldPos = model * vec4(aPos, 1.0);
                 vec4 viewPos = view * worldPos;
                 vec4 clipPos = projection * viewPos;
                 
+                // PSX vertex snapping
                 clipPos.xy = floor(clipPos.xy * u_snapResolution) / u_snapResolution;
                 
+                // Fog calculations
                 float distance = length(viewPos.xyz);
                 float distanceFog = clamp((fogEnd - distance) / (fogEnd - fogStart), 0.0, 1.0);
                 
@@ -95,6 +97,9 @@ public:
                 float heightFog = clamp((height - fogHeightStart) / (fogHeightEnd - fogHeightStart), 0.0, 1.0);
                 
                 fogFactor = min(distanceFog, heightFog);
+                
+                // Basic normal calculation (assuming uniform scaling)
+                Normal = normalize(mat3(model) * vec3(0.0, 1.0, 0.0)); // Simple upward normal for now
                 
                 gl_Position = clipPos;
                 vertexColor = aColor;
@@ -111,12 +116,14 @@ public:
             in float fogFactor;
             in vec3 FragPos;
             in vec3 WorldPos;
+            in vec3 Normal;
             out vec4 FragColor;
             
             uniform sampler2D ourTexture;
             uniform bool useTexture;
             uniform vec3 fogColor;
             
+            // Spotlight
             uniform bool spotlightEnabled;
             uniform vec3 spotlightPos;
             uniform vec3 spotlightDir;
@@ -126,6 +133,13 @@ public:
             uniform float spotlightInnerCone;
             uniform float spotlightOuterCone;
             
+            // Directional Light
+            uniform bool directionalEnabled;
+            uniform vec3 directionalDir;
+            uniform vec3 directionalColor;
+            uniform float directionalIntensity;
+            
+            // Ambient Light
             uniform vec3 ambientColor;
             uniform float ambientIntensity;
             
@@ -139,8 +153,20 @@ public:
                     baseColor = vec4(vertexColor, 1.0);
                 }
                 
+                // Start with ambient lighting
                 vec3 lighting = ambientColor * ambientIntensity;
                 
+                vec3 normal = normalize(Normal);
+                
+                // Directional Light calculation
+                if (directionalEnabled) {
+                    vec3 lightDir = normalize(-directionalDir); // Light direction points toward the light
+                    float diff = max(dot(normal, lightDir), 0.0);
+                    vec3 diffuse = directionalColor * directionalIntensity * diff;
+                    lighting += diffuse;
+                }
+                
+                // Spotlight calculation (existing code)
                 if (spotlightEnabled) {
                     vec3 lightDir = normalize(spotlightPos - WorldPos);
                     float distance = length(spotlightPos - WorldPos);
@@ -152,19 +178,27 @@ public:
                         
                         float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * distance * distance);
                         
-                        lighting += spotlightColor * spotlightIntensity * intensity * attenuation;
+                        // Add basic diffuse lighting for spotlight
+                        float diff = max(dot(normal, lightDir), 0.0);
+                        
+                        lighting += spotlightColor * spotlightIntensity * intensity * attenuation * diff;
                     }
                 }
                 
+                // Clamp lighting to prevent over-brightening
+                lighting = clamp(lighting, 0.0, 2.0);
+                
                 vec4 finalColor = baseColor * vec4(lighting, 1.0);
+                
+                // PSX color quantization
                 finalColor.rgb = floor(finalColor.rgb * 16.0) / 16.0;
+                
+                // Apply fog
                 finalColor.rgb = mix(fogColor, finalColor.rgb, fogFactor);
                 
                 FragColor = finalColor;
             }
         )";
-
-        
         
         psxShader = new Shader(vertexSource, fragmentSource, true);
         particles = new ParticleSystem(2000);
@@ -189,7 +223,7 @@ public:
         }
     }
     
-   void BeginFrame(Camera& camera) {
+    void BeginFrame(Camera& camera) {
         postProcess->BeginRender();
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -200,12 +234,15 @@ public:
         
         psxShader->use();
         psxShader->setFloat("u_snapResolution", vertexSnapResolution);
+        
+        // Fog uniforms
         psxShader->setFloat("fogStart", fog.start);
         psxShader->setFloat("fogEnd", fog.end);
         psxShader->setFloat("fogHeightStart", fog.heightStart);
         psxShader->setFloat("fogHeightEnd", fog.heightEnd);
         psxShader->setVec3("fogColor", fog.color[0], fog.color[1], fog.color[2]);
         
+        // Spotlight uniforms
         psxShader->setBool("spotlightEnabled", lighting.spotlight.enabled);
         psxShader->setVec3("spotlightPos", lighting.spotlight.position[0], lighting.spotlight.position[1], lighting.spotlight.position[2]);
         psxShader->setVec3("spotlightDir", lighting.spotlight.direction[0], lighting.spotlight.direction[1], lighting.spotlight.direction[2]);
@@ -215,6 +252,13 @@ public:
         psxShader->setFloat("spotlightInnerCone", lighting.spotlight.innerCone);
         psxShader->setFloat("spotlightOuterCone", lighting.spotlight.outerCone);
         
+        // Directional light uniforms
+        psxShader->setBool("directionalEnabled", lighting.directional.enabled);
+        psxShader->setVec3("directionalDir", lighting.directional.direction[0], lighting.directional.direction[1], lighting.directional.direction[2]);
+        psxShader->setVec3("directionalColor", lighting.directional.color[0], lighting.directional.color[1], lighting.directional.color[2]);
+        psxShader->setFloat("directionalIntensity", lighting.directional.intensity);
+        
+        // Ambient light uniforms
         psxShader->setVec3("ambientColor", lighting.ambient.color[0], lighting.ambient.color[1], lighting.ambient.color[2]);
         psxShader->setFloat("ambientIntensity", lighting.ambient.intensity);
         
@@ -244,7 +288,7 @@ public:
         }
     }
     
-   void EndFrame(Camera& camera, int screenWidth, int screenHeight) {
+    void EndFrame(Camera& camera, int screenWidth, int screenHeight) {
         float view[16], projection[16];
         camera.GetViewMatrix(view);
         perspective(camera.Fov, currentAspectRatio, 0.1f, 100.0f, projection);
@@ -260,12 +304,11 @@ public:
         particles->Update(deltaTime, camera.Position);
     }
     
-    // FIXED DESTRUCTOR - ADD shadowMap deletion
     ~PSXRenderer() {
         delete psxShader;
         delete particles;
         delete postProcess;
-        delete shadowMap;  // ADD THIS LINE
+        delete shadowMap;
         delete skybox;
     }
 

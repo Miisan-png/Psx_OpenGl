@@ -175,6 +175,10 @@ void DebugUI::RenderDebugWindow(Game& game) {
             ImGuiTheme::SetPinkTheme();
         }
         ImGui::SameLine();
+        if (ImGui::Button("Red Theme")) {
+            ImGuiTheme::SetRedTheme();
+        }
+        ImGui::SameLine();
         if (ImGui::Button("Dark Theme")) {
             ImGuiTheme::SetDarkTheme();
         }

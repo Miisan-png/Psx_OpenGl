@@ -5,4 +5,6 @@ C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\ConsoleWindow.
 C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\PerformanceWindow.cpp;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\PerformanceWindow.obj
 C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\ImGuiTheme.cpp;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\ImGuiTheme.obj
 C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\SceneViewportWindow.cpp;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\SceneViewportWindow.obj
+C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\ObjectInspectorWindow.cpp;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\ObjectInspectorWindow.obj
+C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\src\editor\OutlinerWindow.cpp;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\OutlinerWindow.obj
 C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\vendor\glad\src\glad.c;C:\Users\ssaya\Desktop\Game Development\C++\Psx_OpenGl\build\PSXHorrorEngine.dir\Release\glad.obj

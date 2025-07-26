@@ -1,6 +1,8 @@
 #include "editor/SceneViewportWindow.h"
+#include "editor/ObjectInspectorWindow.h"
 #include <imgui.h>
 #include <glad/glad.h>
+#include <cmath>
 
 SceneViewportWindow::SceneViewportWindow() : isOpen(false) {
     viewportCamera = Camera(0.0f, 5.0f, 10.0f);
@@ -18,6 +20,10 @@ SceneViewportWindow::SceneViewportWindow() : isOpen(false) {
     lastMouseY = 0.0f;
     isDragging = false;
     isMiddleMouseDown = false;
+    
+    currentGizmoMode = GizmoMode::TRANSLATE;
+    inspectorWindow = nullptr;
+    hoveredObjectIndex = -1;
     
     CreateGridShader();
     CreateGridGeometry();
@@ -52,6 +58,18 @@ void SceneViewportWindow::Draw(Game& game) {
             ImGui::SliderFloat("Grid Spacing", &gridSpacing, 0.5f, 5.0f);
             ImGui::EndMenu();
         }
+        if (ImGui::BeginMenu("Gizmos")) {
+            if (ImGui::RadioButton("Translate", currentGizmoMode == GizmoMode::TRANSLATE)) {
+                currentGizmoMode = GizmoMode::TRANSLATE;
+            }
+            if (ImGui::RadioButton("Rotate", currentGizmoMode == GizmoMode::ROTATE)) {
+                currentGizmoMode = GizmoMode::ROTATE;
+            }
+            if (ImGui::RadioButton("Scale", currentGizmoMode == GizmoMode::SCALE)) {
+                currentGizmoMode = GizmoMode::SCALE;
+            }
+            ImGui::EndMenu();
+        }
         ImGui::EndMenuBar();
     }
     
@@ -64,12 +82,12 @@ void SceneViewportWindow::Draw(Game& game) {
     
     ImGui::Image((ImTextureID)(intptr_t)colorTexture, viewportPanelSize, ImVec2(0, 1), ImVec2(1, 0));
     
-    HandleInput();
+    HandleInput(game);
     
     ImGui::End();
 }
 
-void SceneViewportWindow::HandleInput() {
+void SceneViewportWindow::HandleInput(Game& game) {
     if (!ImGui::IsItemHovered()) return;
     
     ImGuiIO& io = ImGui::GetIO();
@@ -80,6 +98,10 @@ void SceneViewportWindow::HandleInput() {
     
     float relativeX = mousePos.x - (windowPos.x + contentMin.x);
     float relativeY = mousePos.y - (windowPos.y + contentMin.y);
+    
+    if (ImGui::IsMouseClicked(ImGuiMouseButton_Left)) {
+        HandleObjectSelection(game);
+    }
     
     if (ImGui::IsMouseClicked(ImGuiMouseButton_Middle)) {
         isMiddleMouseDown = true;
@@ -122,6 +144,16 @@ void SceneViewportWindow::HandleInput() {
         viewportCamera.Position[1] += viewportCamera.Front[1] * io.MouseWheel * zoomSpeed;
         viewportCamera.Position[2] += viewportCamera.Front[2] * io.MouseWheel * zoomSpeed;
     }
+    
+    if (ImGui::IsKeyPressed(ImGuiKey_G)) {
+        currentGizmoMode = GizmoMode::TRANSLATE;
+    }
+    if (ImGui::IsKeyPressed(ImGuiKey_R)) {
+        currentGizmoMode = GizmoMode::ROTATE;
+    }
+    if (ImGui::IsKeyPressed(ImGuiKey_S)) {
+        currentGizmoMode = GizmoMode::SCALE;
+    }
 }
 
 void SceneViewportWindow::RenderViewport(Game& game) {
@@ -150,6 +182,10 @@ void SceneViewportWindow::RenderViewport(Game& game) {
     }
     
     RenderSceneObjects(game, view, projection);
+    
+    if (showGizmos) {
+        RenderGizmos(game, view, projection);
+    }
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
@@ -211,6 +247,154 @@ void SceneViewportWindow::RenderSceneObjects(Game& game, const float* view, cons
             obj.model->Draw();
         }
     }
+}
+
+void SceneViewportWindow::RenderGizmos(Game& game, const float* view, const float* projection) {
+    if (!inspectorWindow) return;
+    
+    int selectedIndex = inspectorWindow->GetSelectedObject();
+    if (selectedIndex < 0 || selectedIndex >= game.scene.objects.size()) return;
+    
+    RenderObject& obj = game.scene.objects[selectedIndex];
+}
+
+void SceneViewportWindow::HandleObjectSelection(Game& game) {
+    ImGuiIO& io = ImGui::GetIO();
+    ImVec2 mousePos = ImGui::GetMousePos();
+    ImVec2 windowPos = ImGui::GetWindowPos();
+    ImVec2 contentMin = ImGui::GetWindowContentRegionMin();
+    
+    float relativeX = mousePos.x - (windowPos.x + contentMin.x);
+    float relativeY = mousePos.y - (windowPos.y + contentMin.y);
+    
+    float view[16];
+    viewportCamera.GetViewMatrix(view);
+    
+    float projection[16];
+    float aspect = (float)framebufferWidth / (float)framebufferHeight;
+    perspective(45.0f, aspect, 0.1f, 100.0f, projection);
+    
+    float rayOrigin[3], rayDir[3];
+    ScreenToWorldRay(relativeX, relativeY, rayOrigin, rayDir, view, projection);
+    
+    int closestObject = -1;
+    float closestDistance = 1000.0f;
+    
+    for (int i = 0; i < game.scene.objects.size(); i++) {
+        const RenderObject& obj = game.scene.objects[i];
+        
+        float distance;
+        if (RayIntersectsBox(rayOrigin, rayDir, obj, distance)) {
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestObject = i;
+            }
+        }
+    }
+    
+    if (inspectorWindow) {
+        inspectorWindow->SetSelectedObject(closestObject);
+    }
+}
+
+void SceneViewportWindow::SetInspectorWindow(ObjectInspectorWindow* inspector) {
+    inspectorWindow = inspector;
+}
+
+bool SceneViewportWindow::RayIntersectsBox(const float* rayOrigin, const float* rayDir, const RenderObject& obj, float& distance) {
+    float boxMin[3] = {
+        obj.transform.position[0] - obj.transform.scale[0],
+        obj.transform.position[1] - obj.transform.scale[1],
+        obj.transform.position[2] - obj.transform.scale[2]
+    };
+    
+    float boxMax[3] = {
+        obj.transform.position[0] + obj.transform.scale[0],
+        obj.transform.position[1] + obj.transform.scale[1],
+        obj.transform.position[2] + obj.transform.scale[2]
+    };
+    
+    float tMin = (boxMin[0] - rayOrigin[0]) / rayDir[0];
+    float tMax = (boxMax[0] - rayOrigin[0]) / rayDir[0];
+    
+    if (tMin > tMax) {
+        float temp = tMin;
+        tMin = tMax;
+        tMax = temp;
+    }
+    
+    float tyMin = (boxMin[1] - rayOrigin[1]) / rayDir[1];
+    float tyMax = (boxMax[1] - rayOrigin[1]) / rayDir[1];
+    
+    if (tyMin > tyMax) {
+        float temp = tyMin;
+        tyMin = tyMax;
+        tyMax = temp;
+    }
+    
+    if (tMin > tyMax || tyMin > tMax) return false;
+    
+    if (tyMin > tMin) tMin = tyMin;
+    if (tyMax < tMax) tMax = tyMax;
+    
+    float tzMin = (boxMin[2] - rayOrigin[2]) / rayDir[2];
+    float tzMax = (boxMax[2] - rayOrigin[2]) / rayDir[2];
+    
+    if (tzMin > tzMax) {
+        float temp = tzMin;
+        tzMin = tzMax;
+        tzMax = temp;
+    }
+    
+    if (tMin > tzMax || tzMin > tMax) return false;
+    
+    if (tzMin > tMin) tMin = tzMin;
+    if (tzMax < tMax) tMax = tzMax;
+    
+    distance = tMin > 0 ? tMin : tMax;
+    return distance > 0;
+}
+
+void SceneViewportWindow::ScreenToWorldRay(float screenX, float screenY, float* rayOrigin, float* rayDir, const float* view, const float* projection) {
+    float normalizedX = (2.0f * screenX) / framebufferWidth - 1.0f;
+    float normalizedY = 1.0f - (2.0f * screenY) / framebufferHeight;
+    
+    rayOrigin[0] = viewportCamera.Position[0];
+    rayOrigin[1] = viewportCamera.Position[1];
+    rayOrigin[2] = viewportCamera.Position[2];
+    
+    float clipCoords[4] = { normalizedX, normalizedY, -1.0f, 1.0f };
+    
+    float invProjection[16];
+    for (int i = 0; i < 16; i++) invProjection[i] = 0;
+    invProjection[0] = 1.0f / projection[0];
+    invProjection[5] = 1.0f / projection[5];
+    invProjection[10] = 0;
+    invProjection[11] = -1;
+    invProjection[14] = 1.0f / projection[14];
+    
+    float eyeCoords[4] = {
+        clipCoords[0] / projection[0],
+        clipCoords[1] / projection[5],
+        -1.0f,
+        0.0f
+    };
+    
+    float invView[16];
+    for (int i = 0; i < 16; i++) invView[i] = 0;
+    invView[0] = view[0]; invView[1] = view[4]; invView[2] = view[8];
+    invView[4] = view[1]; invView[5] = view[5]; invView[6] = view[9];
+    invView[8] = view[2]; invView[9] = view[6]; invView[10] = view[10];
+    invView[15] = 1;
+    
+    rayDir[0] = invView[0] * eyeCoords[0] + invView[4] * eyeCoords[1] + invView[8] * eyeCoords[2];
+    rayDir[1] = invView[1] * eyeCoords[0] + invView[5] * eyeCoords[1] + invView[9] * eyeCoords[2];
+    rayDir[2] = invView[2] * eyeCoords[0] + invView[6] * eyeCoords[1] + invView[10] * eyeCoords[2];
+    
+    float length = sqrt(rayDir[0]*rayDir[0] + rayDir[1]*rayDir[1] + rayDir[2]*rayDir[2]);
+    rayDir[0] /= length;
+    rayDir[1] /= length;
+    rayDir[2] /= length;
 }
 
 void SceneViewportWindow::CreateGridShader() {

@@ -7,6 +7,8 @@ class Game;
 class ConsoleWindow;
 class PerformanceWindow;
 class SceneViewportWindow;
+class ObjectInspectorWindow;
+class OutlinerWindow;
 
 class DebugUI {
 public:
@@ -26,6 +28,8 @@ public:
     ConsoleWindow* consoleWindow = nullptr;
     PerformanceWindow* performanceWindow = nullptr;
     SceneViewportWindow* sceneViewportWindow = nullptr;
+    ObjectInspectorWindow* objectInspectorWindow = nullptr;
+    OutlinerWindow* outlinerWindow = nullptr;
     
     bool Initialize(GLFWwindow* window);
     void Update(float deltaTime, Game& game);
@@ -34,6 +38,8 @@ public:
     void TogglePerformanceWindow();
     void ToggleConsoleWindow();
     void ToggleSceneViewportWindow();
+    void ToggleObjectInspectorWindow();
+    void ToggleOutlinerWindow();
     void Shutdown();
 
     void ToggleSceneEditor() {

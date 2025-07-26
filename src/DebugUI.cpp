@@ -8,6 +8,8 @@
 #include "editor/ConsoleWindow.h"
 #include "editor/PerformanceWindow.h"
 #include "editor/SceneViewportWindow.h"
+#include "editor/ObjectInspectorWindow.h"
+#include "editor/OutlinerWindow.h"
 #include "editor/ImGuiTheme.h"
 
 bool DebugUI::Initialize(GLFWwindow* window) {
@@ -24,6 +26,11 @@ bool DebugUI::Initialize(GLFWwindow* window) {
     consoleWindow = new ConsoleWindow();
     performanceWindow = new PerformanceWindow();
     sceneViewportWindow = new SceneViewportWindow();
+    objectInspectorWindow = new ObjectInspectorWindow();
+    outlinerWindow = new OutlinerWindow();
+    
+    sceneViewportWindow->SetInspectorWindow(objectInspectorWindow);
+    outlinerWindow->SetInspectorWindow(objectInspectorWindow);
     
     consoleWindow->AddLog("[INFO] PSX Horror Engine initialized!");
     consoleWindow->AddLog("[INFO] Console system ready");
@@ -55,6 +62,8 @@ void DebugUI::Update(float deltaTime, Game& game) {
     consoleWindow->Draw();
     performanceWindow->Draw();
     sceneViewportWindow->Draw(game);
+    objectInspectorWindow->Draw(game);
+    outlinerWindow->Draw(game);
 }
 
 void DebugUI::Render() {
@@ -78,10 +87,20 @@ void DebugUI::ToggleSceneViewportWindow() {
     sceneViewportWindow->Toggle();
 }
 
+void DebugUI::ToggleObjectInspectorWindow() {
+    objectInspectorWindow->Toggle();
+}
+
+void DebugUI::ToggleOutlinerWindow() {
+    outlinerWindow->Toggle();
+}
+
 void DebugUI::Shutdown() {
     delete consoleWindow;
     delete performanceWindow;
     delete sceneViewportWindow;
+    delete objectInspectorWindow;
+    delete outlinerWindow;
     
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
@@ -173,13 +192,17 @@ void DebugUI::RenderDebugWindow(Game& game) {
         if (ImGui::Button("Toggle Console")) {
             ToggleConsoleWindow();
         }
-        ImGui::SameLine();
         if (ImGui::Button("Toggle Performance")) {
             TogglePerformanceWindow();
         }
-        ImGui::SameLine();
         if (ImGui::Button("Toggle Viewport")) {
             ToggleSceneViewportWindow();
+        }
+        if (ImGui::Button("Toggle Inspector")) {
+            ToggleObjectInspectorWindow();
+        }
+        if (ImGui::Button("Toggle Outliner")) {
+            ToggleOutlinerWindow();
         }
         
         ImGui::Separator();

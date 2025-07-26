@@ -16,6 +16,8 @@
 struct FogSettings {
     float start = 2.0f;
     float end = 8.0f;
+    float heightStart = -2.0f;
+    float heightEnd = 3.0f;
     float color[3] = {0.05f, 0.02f, 0.08f};
 };
 
@@ -70,6 +72,8 @@ public:
             uniform float u_snapResolution;
             uniform float fogStart;
             uniform float fogEnd;
+            uniform float fogHeightStart;
+            uniform float fogHeightEnd;
             
             out vec3 vertexColor;
             out vec2 TexCoord;
@@ -85,7 +89,12 @@ public:
                 clipPos.xy = floor(clipPos.xy * u_snapResolution) / u_snapResolution;
                 
                 float distance = length(viewPos.xyz);
-                fogFactor = clamp((fogEnd - distance) / (fogEnd - fogStart), 0.0, 1.0);
+                float distanceFog = clamp((fogEnd - distance) / (fogEnd - fogStart), 0.0, 1.0);
+                
+                float height = worldPos.y;
+                float heightFog = clamp((height - fogHeightStart) / (fogHeightEnd - fogHeightStart), 0.0, 1.0);
+                
+                fogFactor = min(distanceFog, heightFog);
                 
                 gl_Position = clipPos;
                 vertexColor = aColor;
@@ -154,6 +163,8 @@ public:
                 FragColor = finalColor;
             }
         )";
+
+        
         
         psxShader = new Shader(vertexSource, fragmentSource, true);
         particles = new ParticleSystem(2000);
@@ -178,7 +189,7 @@ public:
         }
     }
     
-    void BeginFrame(Camera& camera) {
+   void BeginFrame(Camera& camera) {
         postProcess->BeginRender();
         glClearColor(fog.color[0], fog.color[1], fog.color[2], 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -191,6 +202,8 @@ public:
         psxShader->setFloat("u_snapResolution", vertexSnapResolution);
         psxShader->setFloat("fogStart", fog.start);
         psxShader->setFloat("fogEnd", fog.end);
+        psxShader->setFloat("fogHeightStart", fog.heightStart);
+        psxShader->setFloat("fogHeightEnd", fog.heightEnd);
         psxShader->setVec3("fogColor", fog.color[0], fog.color[1], fog.color[2]);
         
         psxShader->setBool("spotlightEnabled", lighting.spotlight.enabled);
@@ -231,7 +244,7 @@ public:
         }
     }
     
-    void EndFrame(Camera& camera, int screenWidth, int screenHeight) {
+   void EndFrame(Camera& camera, int screenWidth, int screenHeight) {
         float view[16], projection[16];
         camera.GetViewMatrix(view);
         perspective(camera.Fov, currentAspectRatio, 0.1f, 100.0f, projection);

@@ -29,11 +29,11 @@ public:
     void Render(Camera& camera, float aspectRatio) {
         if (!skyboxShader) return;
         
+        glDepthFunc(GL_LEQUAL);
         glDepthMask(GL_FALSE);
         
         skyboxShader->use();
         
-        // Set up view matrix without translation
         float view[16];
         camera.GetViewMatrix(view);
         view[12] = view[13] = view[14] = 0.0f;
@@ -49,6 +49,7 @@ public:
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         
+        glDepthFunc(GL_LESS);
         glDepthMask(GL_TRUE);
     }
     
@@ -104,111 +105,80 @@ private:
             out vec4 FragColor;
             uniform float time;
             
-            float random(vec2 st) {
-                return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+            float hash(float n) {
+                return fract(sin(n) * 43758.5453);
+            }
+            
+            float hash2(vec2 p) {
+                return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
             }
             
             vec3 generateStars(vec3 direction) {
-                vec2 uv = direction.xy * 120.0;
                 vec3 starColor = vec3(0.0);
+                vec3 absDir = abs(direction);
+                vec2 uv = vec2(0.0);
                 
-                vec2 id = floor(uv);
-                vec2 gv = fract(uv) - 0.5;
+                if (absDir.x >= absDir.y && absDir.x >= absDir.z) {
+                    uv = direction.yz / absDir.x;
+                } else if (absDir.y >= absDir.x && absDir.y >= absDir.z) {
+                    uv = direction.xz / absDir.y;
+                } else {
+                    uv = direction.xy / absDir.z;
+                }
                 
-                float starRand = random(id);
-                if (starRand > 0.88) {
-                    float dist = length(gv);
-                    float starSize = 0.04 + random(id + 100.0) * 0.02;
+                uv = uv * 0.5 + 0.5;
+                uv *= 20.0;
+                
+                vec2 grid = floor(uv);
+                vec2 frac = fract(uv);
+                
+                float starRand = hash2(grid);
+                if (starRand > 0.92) {
+                    vec2 starPos = vec2(hash2(grid + 100.0), hash2(grid + 200.0));
+                    float dist = distance(frac, starPos);
                     
-                    if (dist < starSize) {
-                        float intensity = 1.0 - (dist / starSize);
-                        intensity = pow(intensity, 2.0);
+                    if (dist < 0.1) {
+                        float intensity = 1.0 - (dist / 0.1);
+                        intensity = intensity * intensity;
                         
-                        // Twinkling
-                        float twinkle = 0.8 + 0.2 * sin(time * 3.0 + random(id) * 6.28);
+                        float twinkle = 0.7 + 0.3 * sin(time * 2.0 + hash2(grid) * 6.28);
                         
-                        // Different neon colors
                         vec3 baseColor = vec3(1.0);
-                        float colorChoice = random(id + 200.0);
-                        if (colorChoice < 0.2) {
-                            baseColor = vec3(1.0, 0.4, 0.7);      // Hot pink
-                        } else if (colorChoice < 0.4) {
-                            baseColor = vec3(0.4, 0.7, 1.0);      // Cyan
+                        float colorChoice = hash2(grid + 300.0);
+                        if (colorChoice < 0.15) {
+                            baseColor = vec3(1.0, 0.3, 0.8);
+                        } else if (colorChoice < 0.3) {
+                            baseColor = vec3(0.3, 0.8, 1.0);
+                        } else if (colorChoice < 0.45) {
+                            baseColor = vec3(0.8, 1.0, 0.3);
                         } else if (colorChoice < 0.6) {
-                            baseColor = vec3(0.7, 1.0, 0.4);      // Electric green
-                        } else if (colorChoice < 0.8) {
-                            baseColor = vec3(1.0, 0.7, 0.3);      // Orange
-                        } else {
-                            baseColor = vec3(0.8, 0.4, 1.0);      // Purple
+                            baseColor = vec3(1.0, 0.8, 0.3);
+                        } else if (colorChoice < 0.75) {
+                            baseColor = vec3(0.8, 0.3, 1.0);
+                        } else if (colorChoice < 0.9) {
+                            baseColor = vec3(1.0, 0.5, 0.5);
                         }
                         
-                        starColor = baseColor * intensity * twinkle * 1.5;
+                        starColor = baseColor * intensity * twinkle * 2.0;
                     }
                 }
                 
                 return starColor;
             }
             
-            vec3 generateMeteors(vec3 direction) {
-                vec3 meteorColor = vec3(0.0);
-                
-                // 3 meteors at different times
-                for (int i = 0; i < 3; i++) {
-                    float meteorTime = time * 0.4 + float(i) * 3.0;
-                    float meteorPhase = fract(meteorTime / 8.0); // 8 second cycle
-                    
-                    if (meteorPhase < 0.3) { // Only show for 30% of cycle
-                        vec3 meteorStart = normalize(vec3(
-                            sin(float(i) * 2.1),
-                            0.8 + 0.2 * sin(float(i) * 1.7),
-                            cos(float(i) * 2.3)
-                        ));
-                        
-                        vec3 meteorEnd = meteorStart + vec3(-0.8, -1.2, -0.3) * meteorPhase * 3.0;
-                        meteorEnd = normalize(meteorEnd);
-                        
-                        // Check if we're looking at the meteor trail
-                        for (float t = 0.0; t < 1.0; t += 0.1) {
-                            vec3 meteorPos = mix(meteorStart, meteorEnd, t);
-                            float meteorDot = max(0.0, dot(direction, meteorPos));
-                            
-                            if (meteorDot > 0.99) {
-                                float intensity = pow((meteorDot - 0.99) / 0.01, 0.5);
-                                float trailFade = 1.0 - t;
-                                
-                                // Neon meteor colors
-                                vec3 meteorCol;
-                                if (i == 0) meteorCol = vec3(0.0, 1.0, 1.0);      // Cyan
-                                else if (i == 1) meteorCol = vec3(1.0, 0.3, 0.8); // Hot pink
-                                else meteorCol = vec3(0.8, 1.0, 0.2);             // Lime green
-                                
-                                meteorColor += meteorCol * intensity * trailFade * 3.0;
-                            }
-                        }
-                    }
-                }
-                
-                return meteorColor;
-            }
+
             
             void main() {
                 vec3 direction = normalize(WorldPos);
                 
-                // Very dark base sky
-                vec3 skyColor = vec3(0.01, 0.01, 0.02);
+                vec3 skyColor = vec3(0.008, 0.008, 0.015);
                 
-                // Add subtle gradient to horizon
                 float horizon = 1.0 - abs(direction.y);
-                skyColor += vec3(0.02, 0.01, 0.03) * pow(horizon, 3.0);
+                skyColor += vec3(0.015, 0.008, 0.025) * pow(horizon, 4.0);
                 
-                // Add stars
                 skyColor += generateStars(direction);
                 
-                // Add meteors
-                skyColor += generateMeteors(direction);
-                
-                // PSX color quantization
-                skyColor = floor(skyColor * 32.0) / 32.0;
+                skyColor = floor(skyColor * 16.0) / 16.0;
                 
                 FragColor = vec4(skyColor, 1.0);
             }

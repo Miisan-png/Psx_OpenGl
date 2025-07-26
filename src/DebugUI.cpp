@@ -94,6 +94,8 @@ void DebugUI::RenderDebugWindow(Game& game) {
     if (ImGui::CollapsingHeader("Fog Controls")) {
         ImGui::SliderFloat("Fog Start", &game.renderer.fog.start, 0.1f, 10.0f);
         ImGui::SliderFloat("Fog End", &game.renderer.fog.end, 2.0f, 50.0f);
+        ImGui::SliderFloat("Height Start", &game.renderer.fog.heightStart, -10.0f, 5.0f);
+        ImGui::SliderFloat("Height End", &game.renderer.fog.heightEnd, -5.0f, 10.0f);
         ImGui::ColorEdit3("Fog Color", game.renderer.fog.color);
     }
     
